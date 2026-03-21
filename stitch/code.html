@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TUSSLE | Redefining the Art of the Deal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&amp;family=Lato:ital,wght@0,400;0,700;1,400&amp;family=Roboto+Condensed:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#003061",
+              "on-background": "#e5e2e1",
+              "on-tertiary-container": "#002955",
+              "surface-container": "#201f1f",
+              "secondary-fixed": "#e2e2e2",
+              "tertiary": "#a8c8ff",
+              "surface-container-low": "#1c1b1b",
+              "surface-tint": "#ffb4a2",
+              "on-secondary-fixed-variant": "#454747",
+              "background": "#131313",
+              "inverse-on-surface": "#313030",
+              "primary-fixed": "#ffdad2",
+              "surface-container-lowest": "#0e0e0e",
+              "on-secondary": "#2f3131",
+              "secondary-container": "#454747",
+              "tertiary-container": "#3491ff",
+              "outline-variant": "#5e3f38",
+              "on-primary-fixed": "#3d0700",
+              "surface-bright": "#3a3939",
+              "surface-variant": "#353534",
+              "inverse-surface": "#e5e2e1",
+              "primary": "#ffb4a2",
+              "inverse-primary": "#b52700",
+              "primary-fixed-dim": "#ffb4a2",
+              "error-container": "#93000a",
+              "secondary": "#c6c6c7",
+              "on-primary-container": "#560d00",
+              "on-surface": "#e5e2e1",
+              "tertiary-fixed-dim": "#a8c8ff",
+              "surface-container-high": "#2a2a2a",
+              "secondary-fixed-dim": "#c6c6c7",
+              "on-tertiary-fixed": "#001b3c",
+              "on-error-container": "#ffdad6",
+              "surface": "#131313",
+              "on-secondary-container": "#b4b5b5",
+              "surface-container-highest": "#353534",
+              "on-primary-fixed-variant": "#8a1c00",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-error": "#690005",
+              "tertiary-fixed": "#d5e3ff",
+              "on-tertiary-fixed-variant": "#004689",
+              "outline": "#ae887f",
+              "primary-container": "#ff562d",
+              "surface-dim": "#131313",
+              "error": "#ffb4ab",
+              "on-surface-variant": "#e8bdb3",
+              "on-primary": "#621100",
+              "tussle-iron": "#AAAAAA"
+            },
+            fontFamily: {
+              "headline": ["Oxanium", "sans-serif"],
+              "body": ["Lato", "sans-serif"],
+              "label": ["Roboto Condensed", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #080808;
+        background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+        background-size: 40px 40px;
+        color: #e5e2e1;
+      }
+      .glass-card {
+        background: rgba(53, 53, 52, 0.4);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 59, 0, 0.15);
+        border-left: 1px solid rgba(255, 59, 0, 0.15);
+      }
+      .glow-primary {
+        box-shadow: 0 0 20px rgba(255, 59, 0, 0.2);
+      }
+      .glow-focal {
+        box-shadow: 0 0 40px rgba(255, 59, 0, 0.3);
+      }
+      .milled-surface {
+        background-color: #0e0e0e;
+        border: 1px solid #2a2a2a;
+      }
+      .section-divider {
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(90deg, transparent, #FF3B00, transparent);
+        opacity: 0.3;
+        box-shadow: 0 0 10px rgba(255, 59, 0, 0.5);
+      }
+      .testimonial-card {
+        background-color: #111111 !important;
+        border: 1px solid rgba(255, 59, 0, 0.1) !important;
+        transition: all 0.3s ease;
+      }
+      .testimonial-card:hover {
+        box-shadow: 0 0 15px rgba(255, 59, 0, 0.15);
+        border-color: rgba(255, 59, 0, 0.3) !important;
+      }
+      .cta-card {
+        background: #1a1a1a;
+        border: 2px solid #FF3B00;
+        box-shadow: 0 0 40px rgba(255, 59, 0, 0.2);
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-white">
+<nav class="bg-[#131313]/60 backdrop-blur-xl border-b border-[#FF3B00]/10 shadow-[0_0_15px_rgba(255,59,0,0.1)] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-[#FF3B00] flex items-center gap-2 font-headline uppercase">
+                TUSSLE <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/70 hover:text-white transition-colors" href="#">Features</a>
+<a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/70 hover:text-white transition-colors" href="#">How it Works</a>
+<a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/70 hover:text-white transition-colors" href="#">Pricing</a>
+</div>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-label uppercase tracking-widest text-xs font-bold hover:scale-95 active:scale-90 transition-transform glow-primary">
+                Join Waitlist
+            </button>
+</div>
+</nav>
+<section class="relative pt-16 pb-20 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<span class="font-label text-primary-container text-sm font-bold tracking-[0.2em] uppercase mb-6 block">Weaponized Sales Intelligence</span>
+<h1 class="text-6xl md:text-8xl font-extrabold font-headline tracking-tight leading-[0.9] mb-8">
+                    YOUR NEXT DEAL <br/> <span class="text-primary-container">DESERVES</span> A CLOSER.
+                </h1>
+<p class="text-tussle-iron text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-body">
+                    Tussle listens to your sales calls in real time, calculating margins and anchoring prices while you speak. Never leave money on the table again.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-container text-on-primary px-10 py-4 font-label uppercase tracking-widest text-sm font-bold rounded-full glow-primary hover:translate-y-[-2px] transition-all">
+                        Get Early Access
+                    </button>
+<button class="border border-outline-variant/30 text-white px-10 py-4 font-label uppercase tracking-widest text-sm font-bold rounded-full hover:bg-surface-variant transition-all">
+                        See It In Action ↓
+                    </button>
+</div>
+</div>
+<div class="relative">
+<div class="milled-surface rounded-xl p-6 shadow-2xl relative overflow-hidden glow-focal scale-[1.1] lg:scale-[1.25] translate-x-8 lg:translate-x-12">
+<div class="flex items-center gap-2 mb-4 border-b border-outline-variant/20 pb-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+<div class="ml-4 text-[10px] font-label text-white/40 tracking-wider">TUSSLE_OVERLAY_v1.04</div>
+</div>
+<div class="grid grid-cols-3 gap-3 mb-6">
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<div class="text-[10px] font-label text-white/40 uppercase tracking-wider">Floor</div>
+<div class="text-2xl font-headline font-bold">$7,200</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<div class="text-[10px] font-label text-white/40 uppercase tracking-wider">Target</div>
+<div class="text-2xl font-headline font-bold text-primary-container">$9,500</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<div class="text-[10px] font-label text-white/40 uppercase tracking-wider">Margin</div>
+<div class="text-2xl font-headline font-bold">34%</div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-lg border border-primary-container/30 glow-primary translate-x-4">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary-container">chat_bubble</span>
+<div>
+<p class="text-xs font-label text-primary-container uppercase font-bold mb-1 tracking-widest">Tussle Live Suggestion</p>
+<p class="text-lg font-headline font-bold italic leading-tight">
+                                    "Say: 'We can do $8,400 if you commit by Friday...'"
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary-container/10 blur-[100px] rounded-full -z-10"></div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-12 px-6 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-label text-white text-center uppercase tracking-[0.4em] mb-12 text-sm font-bold">Sound familiar?</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card p-10 group hover:bg-surface-variant transition-all duration-500">
+<span class="text-4xl mb-6 block">😰</span>
+<h3 class="text-2xl font-headline font-bold mb-4 group-hover:text-primary-container transition-colors">You froze...</h3>
+<p class="text-tussle-iron text-lg leading-relaxed font-body">The prospect asked for a discount and you didn't have the math ready. The silence was deafening.</p>
+</div>
+<div class="glass-card p-10 group hover:bg-surface-variant transition-all duration-500">
+<span class="text-4xl mb-6 block">💸</span>
+<h3 class="text-2xl font-headline font-bold mb-4 group-hover:text-primary-container transition-colors">You went lower...</h3>
+<p class="text-tussle-iron text-lg leading-relaxed font-body">Panic set in. You slashed the price by 20% before they even finished their sentence. Margin: Destroyed.</p>
+</div>
+<div class="glass-card p-10 group hover:bg-surface-variant transition-all duration-500">
+<span class="text-4xl mb-6 block">🤦</span>
+<h3 class="text-2xl font-headline font-bold mb-4 group-hover:text-primary-container transition-colors">You said the wrong thing...</h3>
+<p class="text-tussle-iron text-lg leading-relaxed font-body">The wrong value prop at the wrong time. You missed the cues that they were ready to sign.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-12 px-6">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-5xl font-extrabold font-headline mb-16 text-center">SIMPLE. FAST. <span class="text-primary-container">LETHAL.</span></h2>
+<div class="grid md:grid-cols-3 gap-12 relative">
+<div class="text-center relative z-10">
+<div class="w-20 h-20 bg-surface-container-high rounded-lg flex items-center justify-center mx-auto mb-8 border border-outline-variant/20 shadow-lg">
+<span class="material-symbols-outlined text-3xl text-primary-container">tune</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-4">Set Your Limits</h4>
+<p class="text-tussle-iron text-base px-6 font-body">Input your floor, target, and deal variables in seconds before the call starts.</p>
+</div>
+<div class="text-center relative z-10">
+<div class="w-20 h-20 bg-surface-container-high rounded-lg flex items-center justify-center mx-auto mb-8 border border-outline-variant/20 shadow-lg">
+<span class="material-symbols-outlined text-3xl text-primary-container">graphic_eq</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-4">Tussle Listens</h4>
+<p class="text-tussle-iron text-base px-6 font-body">Our AI analyzes sentiment and pricing cues from both sides of the conversation in real-time.</p>
+</div>
+<div class="text-center relative z-10">
+<div class="w-20 h-20 bg-primary-container rounded-lg flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(255,59,0,0.3)]">
+<span class="material-symbols-outlined text-3xl text-on-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-4">You Say The Right Thing</h4>
+<p class="text-tussle-iron text-base px-6 font-body">Get hit with the perfect rebuttal or anchor exactly when the buyer pushes back.</p>
+</div>
+<div class="hidden md:block absolute top-10 left-[20%] right-[20%] h-[2px] bg-gradient-to-r from-transparent via-primary-container/30 to-transparent"></div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-16 px-6 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-12 gap-6 bg-surface-container rounded-2xl p-4 md:p-8 border border-outline-variant/10 shadow-3xl">
+<div class="lg:col-span-3 space-y-6">
+<div class="p-4 bg-surface-container-low rounded border border-outline-variant/5">
+<label class="font-label text-[10px] uppercase text-white/40 mb-2 block tracking-wider">Deal Target</label>
+<div class="h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary-container"></div>
+</div>
+<div class="flex justify-between mt-2 font-headline font-bold text-sm">
+<span>$5k</span>
+<span class="text-primary-container">$12.5k</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded border border-outline-variant/5">
+<label class="font-label text-[10px] uppercase text-white/40 mb-2 block tracking-wider">Competitive Angle</label>
+<div class="space-y-2">
+<div class="bg-surface-container-high p-2 text-xs rounded border border-primary-container/20 font-label tracking-wide">ROI FOCUSED</div>
+<div class="bg-surface-container-lowest p-2 text-xs rounded border border-outline-variant/10 font-label tracking-wide">FEATURE SUPERIORITY</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 relative aspect-video bg-[#0a0a0a] rounded-xl overflow-hidden border border-outline-variant/20 shadow-inner group p-4">
+<div class="w-full h-full bg-surface-container-lowest rounded-lg border border-white/5 flex flex-col">
+<div class="h-8 bg-surface-container-high/50 border-b border-white/5 flex items-center px-3 justify-between">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-[9px] font-label text-white/20 tracking-widest uppercase">Tussle Real-Time Interface</div>
+</div>
+<div class="flex-grow p-4 space-y-4">
+<div class="flex justify-between items-center bg-surface-container p-3 rounded-lg border border-primary-container/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary-container/30">
+<span class="material-symbols-outlined text-primary-container">waves</span>
+</div>
+<div>
+<p class="text-[10px] font-label text-primary-container font-bold uppercase tracking-wider">Prospect Speaking...</p>
+<p class="text-sm font-headline text-white">"We really like the tech, but the price is a bit high."</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-label text-white/30 uppercase">Sentiment</p>
+<p class="text-xs font-bold text-yellow-500">RESISTANCE</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container/30 p-3 rounded border border-white/5">
+<p class="text-[9px] font-label text-white/30 uppercase mb-1">Key Phrase Detected</p>
+<p class="text-xs font-bold text-white">"Budget Constraints"</p>
+</div>
+<div class="bg-surface-container/30 p-3 rounded border border-white/5">
+<p class="text-[9px] font-label text-white/30 uppercase mb-1">Live Probability</p>
+<p class="text-xs font-bold text-green-500">74% CLOSE RATE</p>
+</div>
+</div>
+<div class="bg-primary-container/5 p-4 rounded-lg border-l-4 border-primary-container flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container text-xl">bolt</span>
+<div>
+<p class="text-[10px] font-label text-primary-container font-bold uppercase tracking-widest mb-1">Recommended Rebuttal</p>
+<p class="text-sm font-headline font-bold text-white">"Focus on the cost of delay. Remind them of the $200k monthly leak they mentioned earlier."</p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<div class="px-2 py-1 bg-error rounded text-[9px] font-bold text-white animate-pulse">LIVE ANALYZING</div>
+</div>
+</div>
+<div class="lg:col-span-3">
+<div class="h-full bg-surface-container-lowest rounded-xl p-6 border border-primary-container/40 flex flex-col justify-center">
+<div class="bg-primary-container/10 p-2 w-fit rounded mb-4">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<p class="font-label text-[10px] text-primary-container font-bold tracking-[0.2em] uppercase mb-2">Live Insight</p>
+<p class="text-sm font-body text-white/80 leading-relaxed italic mb-4">
+                            "Buyer mentioned budget pressure → anchor on ROI, not price."
+                        </p>
+<div class="p-3 bg-surface-container rounded border-l-4 border-primary-container">
+<p class="text-[10px] font-bold text-white mb-1 font-label tracking-widest">SCRIPT:</p>
+<p class="text-sm font-headline font-bold">"Let's talk about what this costs you to delay..."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-12 px-6 border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center group">
+<div class="text-7xl mb-6 grayscale group-hover:grayscale-0 transition-all transform group-hover:scale-110 duration-300">💼</div>
+<p class="font-label uppercase text-[12px] font-bold tracking-[0.2em] mb-2">Account Executives</p>
+<p class="text-tussle-iron text-xs px-4">Crush quotas with real-time margin protection.</p>
+</div>
+<div class="text-center group">
+<div class="text-7xl mb-6 grayscale group-hover:grayscale-0 transition-all transform group-hover:scale-110 duration-300">📞</div>
+<p class="font-label uppercase text-[12px] font-bold tracking-[0.2em] mb-2">SDRs</p>
+<p class="text-tussle-iron text-xs px-4">Handle objections like a 10-year veteran on day one.</p>
+</div>
+<div class="text-center group">
+<div class="text-7xl mb-6 grayscale group-hover:grayscale-0 transition-all transform group-hover:scale-110 duration-300">🚀</div>
+<p class="font-label uppercase text-[12px] font-bold tracking-[0.2em] mb-2">Founders</p>
+<p class="text-tussle-iron text-xs px-4">Close early adopters without bleeding precious runway.</p>
+</div>
+<div class="text-center group">
+<div class="text-7xl mb-6 grayscale group-hover:grayscale-0 transition-all transform group-hover:scale-110 duration-300">👑</div>
+<p class="font-label uppercase text-[12px] font-bold tracking-[0.2em] mb-2">Sales Managers</p>
+<p class="text-tussle-iron text-xs px-4">Clone your best performers across the entire floor.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-12 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col items-center mb-16 text-center">
+<div class="flex -space-x-4 mb-6">
+<img alt="User avatar Marcus T." class="w-12 h-12 rounded-full border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7rF0kcGtTNYjh3ZXdS4wsxcYmmmJFd-Wqxh10LRjoEKzmTAUwAFejXJps75HYxF-MjvdKzsXejwoKoE3dZUGiYop2LASAcHOkA7kxH6UBhPYc6uNt6YBQOyfcRuZTXpmpSKqWIyoFOmOhCBKSsMBkcUOIXH0l3UwzFHoSB5N2GKRC7BzPzoD-DIA2rnjRQjdbx6dVW7jnkcVbDl_Btls8IfYn-Ku5eOmZ4SuPAZoXMKrZUFI3O56UK5qn4QzP8CH3JHqPbR6h0g"/>
+<img alt="User avatar Priya S." class="w-12 h-12 rounded-full border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoAtjlCdSuFKaG9XfKOK3-_HA0PV4wGQ7djcvtd8zDl4Bi68dvmZKzR9B091pqo_cbiPdKFgmgoQ_Ih14vc9rJrYDyrL91S9iX4NnbI4C0zJcBwTO-TqLdYmPV3bavmvX7kwWIJ_YYNqNDbMmSo5eCfLxYJOPSUDZnxxygx3XvdRk5TZQxtWW2j8dcXilVZ6D3LQ8UW8x5lY5OBiwAs6Kyto3YJxN-DgEHe0KkmK-Qm1fhViU8Y4vX1LbOk7v_v87oebQCS44GDg"/>
+<img alt="User avatar Derek L." class="w-12 h-12 rounded-full border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuWfSDxapAwcZTPycUXUUioEk8uS8GKEPMQ5NSUahrHIyGsyvBLGCR3aqAc_q7ijDj2UqXDOiv8Opm36BWoVbP6N3mER_DlayWrIZx2zX7X9OaN-Kqoh-BmgZ3FWCsr5yCzEQomnH3ERE2tn6KnqfVDezH4Uk2gRO0K-Y6gZJKXXtH5ynPJatnCc_1GRV708phbJgZDW7D_8NKXajLQonddcVRS_RzAhXtIyEZDx1C6sVmljRlrd7n1UdI-TdVUax32tw4vvPm6Q"/>
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-black flex items-center justify-center text-[10px] font-bold font-headline">+1.2k</div>
+</div>
+<h2 class="text-3xl font-extrabold font-headline tracking-tight uppercase">1,200+ REPS ALREADY ON THE WAITLIST</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="testimonial-card p-8 relative rounded-xl">
+<p class="text-lg font-headline font-bold mb-6 italic">"I closed a $12k expansion call using the ROI anchor Tussle suggested mid-call. It's like having a VP of Sales in your ear."</p>
+<p class="font-label text-xs uppercase tracking-widest text-primary-container font-bold">Marcus T. — Enterprise AE</p>
+</div>
+<div class="testimonial-card p-8 relative rounded-xl">
+<p class="text-lg font-headline font-bold mb-6 italic">"No more post-call regret about discounting too deep. Tussle keeps me disciplined when the pressure is on."</p>
+<p class="font-label text-xs uppercase tracking-widest text-primary-container font-bold">Priya S. — Founder</p>
+</div>
+<div class="testimonial-card p-8 relative rounded-xl">
+<p class="text-lg font-headline font-bold mb-6 italic">"The real-time calculation of margins is a game changer. I never have to look away from the camera to use a spreadsheet."</p>
+<p class="font-label text-xs uppercase tracking-widest text-primary-container font-bold">Derek L. — Senior SDR</p>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-20 px-6">
+<div class="max-w-4xl mx-auto cta-card p-12 md:p-20 text-center relative overflow-hidden rounded-2xl">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-primary-container to-transparent"></div>
+<h2 class="text-4xl md:text-6xl font-extrabold font-headline mb-6 tracking-tight uppercase">DON'T WALK INTO ANOTHER DEAL <span class="text-primary-container">NAKED.</span></h2>
+<p class="text-tussle-iron mb-12 text-lg md:text-xl font-body">The beta is nearly full. Secure your spot and start closing with lethal precision.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<input class="flex-grow bg-surface-container-lowest border border-outline-variant/40 rounded-lg px-6 py-4 text-white focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all font-body" placeholder="Enter your work email" type="email"/>
+<button class="bg-primary-container text-on-primary px-8 py-4 font-label uppercase tracking-widest text-sm font-bold rounded-lg glow-primary hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap">
+                    Get Early Access
+                </button>
+</form>
+<div class="mt-6 flex items-center justify-center gap-2 text-primary-container font-label text-[10px] uppercase font-bold tracking-[0.2em]">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+                Spots are limited for beta
+            </div>
+</div>
+</section>
+<footer class="bg-[#0E0E0E] py-12 px-6 border-t border-[#2A2A2A]">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="text-lg font-bold text-[#FF3B00] font-headline uppercase tracking-tighter">TUSSLE AI</div>
+<p class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40">© 2026 TUSSLE. BUILT FOR CLOSERS.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
