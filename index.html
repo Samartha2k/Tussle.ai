@@ -721,20 +721,21 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -35%) scale(0.5);
-            width: 120px;
-            height: 120px;
+            transform: translate(-50%, -50%) scale(1);
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            background: rgba(255,59,0,0.18);
-            filter: blur(40px);
+            background: rgba(255,59,0,0.15);
+            filter: blur(70px);
             z-index: -1;
-            opacity: 0;
+            opacity: 0.8;
             transition: opacity 0.4s ease, transform 0.4s ease;
             pointer-events: none;
         }
         .group:hover .emoji-glow::after {
             opacity: 1;
-            transform: translate(-50%, -35%) scale(1);
+            transform: translate(-50%, -50%) scale(1.2);
+            background: rgba(255,59,0,0.25);
         }
 
         /* Persona emoji idle animations */
