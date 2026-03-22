@@ -40,6 +40,9 @@
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
+    <!-- Twemoji for consistent emoji rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
     <!-- Tailwind Config -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -77,6 +80,23 @@
 
     <!-- Custom Styles -->
     <style>
+        /* Twemoji rendering */
+        img.twemoji {
+            height: 1em;
+            width: 1em;
+            margin: 0 0.05em 0 0.1em;
+            vertical-align: -0.1em;
+            display: inline-block;
+        }
+        .emoji-glow img.twemoji,
+        .emoji-animate img.twemoji,
+        .text-6xl img.twemoji,
+        .text-5xl img.twemoji,
+        .text-4xl img.twemoji {
+            height: 1em;
+            width: 1em;
+        }
+
         /* Background texture */
         body {
             background-color: #080808;
@@ -884,8 +904,11 @@
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
+            }
+            /* Keep reveal transitions working — just make them instant */
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                transition-duration: 0.3s !important;
             }
         }
 
@@ -913,14 +936,14 @@
             </a>
 
             <!-- Desktop Navigation -->
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
-                <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-white transition-colors" href="#features">Features</a>
-                <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-white transition-colors" href="#for-who">Use Cases</a>
+            <div class="hidden md:flex gap-4 lg:gap-8 items-center">
+                <a class="font-label uppercase tracking-[0.1em] text-xs lg:text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap" href="#how-it-works">How It Works</a>
+                <a class="font-label uppercase tracking-[0.1em] text-xs lg:text-sm text-white/70 hover:text-white transition-colors" href="#features">Features</a>
+                <a class="font-label uppercase tracking-[0.1em] text-xs lg:text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap" href="#for-who">Use Cases</a>
             </div>
 
             <!-- Desktop CTA Button -->
-            <button onclick="scrollToCTA()" class="hidden md:block btn-primary text-xs">
+            <button onclick="scrollToCTA()" class="hidden md:block btn-primary text-xs flex-shrink-0">
                 Join Waitlist
             </button>
 
@@ -947,12 +970,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-10 px-6 overflow-hidden min-h-screen flex items-center">
+    <section class="relative pt-20 sm:pt-32 pb-10 px-6 overflow-hidden min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center w-full">
             <!-- Left Column -->
             <div class="z-10 reveal">
                 <span class="font-label text-orange text-sm font-bold tracking-[0.2em] uppercase mb-4 block">⚡ WEAPONIZED SALES INTELLIGENCE</span>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold font-headline tracking-tight leading-[0.9] mb-6 uppercase">
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold font-headline tracking-tight leading-[0.9] mb-6 uppercase">
                     STOP LEAVING <br/> <span class="text-orange">MONEY</span> ON THE TABLE.
                 </h1>
                 <p class="text-tussle-iron text-base md:text-lg max-w-xl mb-6 leading-relaxed font-body">
@@ -1001,9 +1024,17 @@
                 <div id="hero-mockup" class="milled-surface rounded-xl p-6 shadow-2xl relative overflow-hidden glow-breathe tilt-card" style="perspective: 1000px;">
                     <!-- Window Header -->
                     <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-3">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div class="flex items-center gap-2 group/mac cursor-default">
+                            <div class="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e] flex items-center justify-center">
+                                <svg class="opacity-0 group-hover/mac:opacity-100 transition-opacity duration-300 ease-in-out w-[6px] h-[6px] text-[#4d0000]" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            </div>
+                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dea123] flex items-center justify-center">
+                                <svg class="opacity-0 group-hover/mac:opacity-100 transition-opacity duration-300 ease-in-out w-[6px] h-[6px] text-[#5c3300]" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/></svg>
+                            </div>
+                            <div class="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29] flex items-center justify-center">
+                                <svg class="opacity-0 group-hover/mac:opacity-100 transition-opacity duration-300 ease-in-out w-[5.5px] h-[5.5px] text-[#004d00]" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            </div>
+                        </div>
                         <div class="ml-4 text-[10px] font-label text-white/40 tracking-wider uppercase">TUSSLE_OVERLAY_v1.04</div>
                         <div class="ml-auto">
                             <span class="px-2 py-1 bg-orange rounded text-[9px] font-bold text-white live-pulse">● LIVE</span>
@@ -1011,18 +1042,18 @@
                     </div>
 
                     <!-- Stats Grid -->
-                    <div id="stats-grid" class="grid grid-cols-3 gap-3 mb-6">
-                        <div class="bg-[#0a0a0a] p-4 rounded border border-white/5">
+                    <div id="stats-grid" class="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
+                        <div class="bg-[#0a0a0a] p-2 sm:p-4 rounded border border-white/5">
                             <div class="text-[10px] font-label text-white/40 uppercase tracking-wider mb-1">Floor</div>
-                            <div class="text-2xl font-headline font-bold">$<span class="counter" data-target="7200">7,200</span></div>
+                            <div class="text-lg sm:text-2xl font-headline font-bold">$<span class="counter" data-target="7200">7,200</span></div>
                         </div>
-                        <div class="bg-[#0a0a0a] p-4 rounded border border-orange/20">
+                        <div class="bg-[#0a0a0a] p-2 sm:p-4 rounded border border-orange/20">
                             <div class="text-[10px] font-label text-white/40 uppercase tracking-wider mb-1">Target</div>
-                            <div class="text-2xl font-headline font-bold text-orange">$<span class="counter" data-target="9500">9,500</span></div>
+                            <div class="text-lg sm:text-2xl font-headline font-bold text-orange">$<span class="counter" data-target="9500">9,500</span></div>
                         </div>
-                        <div class="bg-[#0a0a0a] p-4 rounded border border-white/5">
+                        <div class="bg-[#0a0a0a] p-2 sm:p-4 rounded border border-white/5">
                             <div class="text-[10px] font-label text-white/40 uppercase tracking-wider mb-1">Margin</div>
-                            <div class="text-2xl font-headline font-bold"><span class="counter" data-target="34">34</span>%</div>
+                            <div class="text-lg sm:text-2xl font-headline font-bold"><span class="counter" data-target="34">34</span>%</div>
                         </div>
                     </div>
 
@@ -1055,24 +1086,24 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="glass-card p-10 group reveal-left reveal-delay-1">
-                    <span class="text-4xl mb-6 block emoji-animate emoji-tremble">😰</span>
-                    <h3 class="text-2xl font-headline font-bold mb-4 group-hover:text-orange transition-colors">You froze...</h3>
-                    <p class="text-tussle-iron text-lg leading-relaxed font-body">The prospect asked for a discount and you didn't have the math ready. The silence was deafening.</p>
+                <div class="glass-card p-6 sm:p-10 group reveal-left reveal-delay-1">
+                    <span class="text-4xl mb-4 sm:mb-6 block emoji-animate emoji-tremble">😰</span>
+                    <h3 class="text-xl sm:text-2xl font-headline font-bold mb-3 sm:mb-4 group-hover:text-orange transition-colors">You froze...</h3>
+                    <p class="text-tussle-iron text-[15px] sm:text-lg leading-relaxed font-body">The prospect asked for a discount and you didn't have the math ready. The silence was deafening.</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-card p-10 group reveal-scale reveal-delay-2">
-                    <span class="text-4xl mb-6 block emoji-animate">💸</span>
-                    <h3 class="text-2xl font-headline font-bold mb-4 group-hover:text-orange transition-colors">You went lower...</h3>
-                    <p class="text-tussle-iron text-lg leading-relaxed font-body">Panic set in. You slashed the price by 20% before they even finished their sentence. Margin: Destroyed.</p>
+                <div class="glass-card p-6 sm:p-10 group reveal-scale reveal-delay-2">
+                    <span class="text-4xl mb-4 sm:mb-6 block emoji-animate">💸</span>
+                    <h3 class="text-xl sm:text-2xl font-headline font-bold mb-3 sm:mb-4 group-hover:text-orange transition-colors">You went lower...</h3>
+                    <p class="text-tussle-iron text-[15px] sm:text-lg leading-relaxed font-body">Panic set in. You slashed the price by 20% before they even finished their sentence. Margin: Destroyed.</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-card p-10 group reveal-right reveal-delay-3">
-                    <span class="text-4xl mb-6 block emoji-animate emoji-facepalm">🤦</span>
-                    <h3 class="text-2xl font-headline font-bold mb-4 group-hover:text-orange transition-colors">You said the wrong thing...</h3>
-                    <p class="text-tussle-iron text-lg leading-relaxed font-body">The wrong value prop at the wrong time. You missed the cues that they were ready to sign.</p>
+                <div class="glass-card p-6 sm:p-10 group reveal-right reveal-delay-3">
+                    <span class="text-4xl mb-4 sm:mb-6 block emoji-animate emoji-facepalm">🤦</span>
+                    <h3 class="text-xl sm:text-2xl font-headline font-bold mb-3 sm:mb-4 group-hover:text-orange transition-colors">You said the wrong thing...</h3>
+                    <p class="text-tussle-iron text-[15px] sm:text-lg leading-relaxed font-body">The wrong value prop at the wrong time. You missed the cues that they were ready to sign.</p>
                 </div>
             </div>
         </div>
@@ -1084,11 +1115,11 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="py-16 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-extrabold font-headline mb-16 text-center uppercase reveal">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-headline mb-10 sm:mb-16 text-center uppercase reveal">
                 SIMPLE. FAST. <span class="text-orange">UNSTOPPABLE.</span>
             </h2>
 
-            <div id="steps-grid" class="grid md:grid-cols-3 gap-12 relative mb-20">
+            <div id="steps-grid" class="grid md:grid-cols-3 gap-8 sm:gap-12 relative mb-12 sm:mb-20">
                 <!-- Connector Line (animated) -->
                 <div id="connector-line" class="connector-line hidden md:block left-[20%] right-[20%]"></div>
 
@@ -1116,7 +1147,7 @@
                 <div class="text-center relative z-10 reveal-scale reveal-delay-3">
                     <div class="step-icon w-20 h-20 bg-orange rounded-lg flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(255,59,0,0.3)] float-animation float-delay-3 relative">
                         <span class="material-symbols-outlined text-3xl text-white" style="font-variation-settings: 'FILL' 1;">bolt</span>
-                        <span class="step-number" data-step="3">3</span>
+                        <span class="step-number" data-step="3" style="background-color: #1a1a1a;">3</span>
                     </div>
                     <h4 class="text-xl font-headline font-bold mb-4 uppercase">You Say The Right Thing</h4>
                     <p class="text-tussle-iron text-base px-6 font-body">A card appears on your screen with exactly what to say. Calm. Precise. Devastating.</p>
@@ -1126,8 +1157,8 @@
             <!-- Integrations -->
             <div class="mt-16 text-center reveal reveal-delay-2">
                 <p class="font-label text-xs uppercase tracking-[0.2em] text-white/50 mb-8 font-bold">5-minute setup. Integrates with your stack.</p>
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    <span class="text-xl md:text-2xl font-headline font-bold tracking-tighter text-white flex items-center gap-2"><span class="material-symbols-outlined text-[28px]">videocam</span> Zoom</span>
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <span class="text-xl md:text-2xl font-headline font-bold tracking-tighter text-[#2D8CFF] flex items-center gap-2"><span class="material-symbols-outlined text-[28px]">videocam</span> Zoom</span>
                     <span class="text-xl md:text-2xl font-headline font-bold tracking-tighter text-[#6264A7] flex items-center gap-2"><span class="material-symbols-outlined text-[28px]">groups</span> Teams</span>
                     <span class="text-xl md:text-2xl font-headline font-bold tracking-tighter text-[#00832d] flex items-center gap-2"><span class="material-symbols-outlined text-[28px]">duo</span> Meet</span>
                     <span class="text-lg md:text-xl font-headline font-bold tracking-widest text-[#00a1e0] border border-[#00a1e0] px-3 py-1 rounded">Salesforce</span>
@@ -1142,10 +1173,10 @@
     <!-- Product Mockup Deep Dive -->
     <section id="features" class="py-16 px-6 bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-extrabold font-headline mb-4 text-center uppercase reveal">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-headline mb-4 text-center uppercase reveal">
                 Watch It <span class="text-orange">FIGHT FOR YOU</span>
             </h2>
-            <p class="text-tussle-iron text-center mb-12 text-lg max-w-2xl mx-auto reveal reveal-delay-1">
+            <p class="text-tussle-iron text-center mb-8 sm:mb-12 text-base sm:text-lg max-w-2xl mx-auto reveal reveal-delay-1">
                 Real output from a live negotiation. Buyer pushes back. Tussle responds in under 2 seconds.
             </p>
 
@@ -1189,25 +1220,31 @@
                 <!-- Center Panel - Live Interface -->
                 <div class="lg:col-span-6 relative milled-surface rounded-xl overflow-hidden" id="center-panel">
                     <!-- Window Header -->
-                    <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-3 px-4 pt-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        <div class="ml-4 text-xs font-label text-white/40 tracking-wider uppercase">Tussle Real-Time Interface</div>
+                    <div class="flex items-center gap-1 sm:gap-2 mb-4 border-b border-white/10 pb-3 px-3 sm:px-4 pt-3 sm:pt-4 flex-wrap">
+                        <div class="flex items-center gap-1.5 sm:gap-2 group/mac cursor-default">
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56] border border-[#e0443e] flex items-center justify-center">
+                                <svg class="opacity-0 group-hover/mac:opacity-100 transition-opacity duration-300 ease-in-out w-[5px] h-[5px] sm:w-[6px] sm:h-[6px] text-[#4d0000]" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            </div>
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e] border border-[#dea123] flex items-center justify-center">
+                                <svg class="opacity-0 group-hover/mac:opacity-100 transition-opacity duration-300 ease-in-out w-[5px] h-[5px] sm:w-[6px] sm:h-[6px] text-[#5c3300]" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/></svg>
+                            </div>
+                            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f] border border-[#1aab29] flex items-center justify-center">
+                                <svg class="opacity-0 group-hover/mac:opacity-100 transition-opacity duration-300 ease-in-out w-[4.5px] h-[4.5px] sm:w-[5.5px] sm:h-[5.5px] text-[#004d00]" fill="none" stroke="currentColor" stroke-width="5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            </div>
+                        </div>
+                        <div class="ml-2 sm:ml-4 text-[10px] sm:text-xs font-label text-white/40 tracking-wider uppercase">Tussle Real-Time</div>
                         <div class="ml-auto">
-                            <span class="px-2 py-1 bg-orange rounded text-[10px] font-bold text-white live-pulse">● LIVE ANALYZING</span>
+                            <span class="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-orange rounded text-[9px] sm:text-[10px] font-bold text-white live-pulse">● LIVE</span>
                         </div>
                     </div>
 
                     <!-- Content -->
-                    <div class="px-4 pb-4 space-y-4">
+                    <div class="px-3 sm:px-4 pb-3 sm:pb-4 space-y-3 sm:space-y-4">
                         <!-- Prospect Quote -->
-                        <div class="bg-surface p-4 rounded-lg border border-orange/20">
-                            <div class="flex items-start gap-3 mb-2">
-                                <div class="w-10 h-10 rounded-full bg-orange/20 flex items-center justify-center border border-orange/30 flex-shrink-0">
+                        <div class="bg-surface p-3 sm:p-4 rounded-lg border border-orange/20">
+                            <div class="flex items-center gap-2 sm:gap-3 mb-2">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange/20 flex items-center justify-center border border-orange/30 flex-shrink-0">
                                     <div class="waveform">
-                                        <div class="bar"></div>
-                                        <div class="bar"></div>
                                         <div class="bar"></div>
                                         <div class="bar"></div>
                                         <div class="bar"></div>
@@ -1215,15 +1252,13 @@
                                         <div class="bar"></div>
                                     </div>
                                 </div>
-                                <div class="flex-1">
-                                    <p class="text-xs font-label text-orange font-bold uppercase tracking-wider mb-1">Prospect Speaking...</p>
-                                    <p id="prospect-quote" class="text-base font-headline text-white">"We really like the tech, but the price is a bit high."</p>
-                                </div>
-                                <div class="text-right">
+                                <p class="text-xs font-label text-orange font-bold uppercase tracking-wider">Prospect Speaking...</p>
+                                <div class="ml-auto text-right flex-shrink-0">
                                     <p class="text-[10px] font-label text-white/30 uppercase">Sentiment</p>
-                                    <p id="sentiment-badge" class="text-sm font-bold text-yellow-500 sentiment-badge">RESISTANCE</p>
+                                    <p id="sentiment-badge" class="text-xs sm:text-sm font-bold text-yellow-500 sentiment-badge">RESISTANCE</p>
                                 </div>
                             </div>
+                            <p id="prospect-quote" class="text-sm sm:text-base font-headline text-white">"We really like the tech, but the price is a bit high."</p>
                         </div>
 
                         <!-- Detection Grid -->
@@ -1276,10 +1311,10 @@
     <!-- Who It's For -->
     <section id="for-who" class="py-20 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline mb-6 text-center uppercase reveal">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline mb-4 sm:mb-6 text-center uppercase reveal">
                 Built For <span class="text-orange">CLOSERS.</span>
             </h2>
-            <p class="text-tussle-iron text-lg md:text-xl text-center mb-16 max-w-2xl mx-auto reveal reveal-delay-1">
+            <p class="text-tussle-iron text-base sm:text-lg md:text-xl text-center mb-10 sm:mb-16 max-w-2xl mx-auto reveal reveal-delay-1">
                 Real-time intelligence for sales professionals who refuse to leave money on the table.
             </p>
 
@@ -1331,11 +1366,11 @@
                         +1.2k
                     </div>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-extrabold font-headline tracking-tight uppercase">1,200+ REPS ALREADY ON THE WAITLIST</h2>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold font-headline tracking-tight uppercase px-4">1,200+ REPS ALREADY ON THE WAITLIST</h2>
             </div>
 
             <!-- Testimonial Cards -->
-            <div id="testimonials-grid" class="grid md:grid-cols-3 gap-8">
+            <div id="testimonials-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Card 1 -->
                 <div class="testimonial-card p-8 relative rounded-xl reveal-left reveal-delay-1" data-tilt-testimonial>
                     <div class="flex gap-1 mb-4 star-row">
@@ -1390,10 +1425,10 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-16 px-6">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-extrabold font-headline mb-4 text-center uppercase reveal">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-headline mb-4 text-center uppercase reveal">
                 GOT <span class="text-orange">QUESTIONS?</span>
             </h2>
-            <p class="text-tussle-iron text-center mb-12 text-lg reveal reveal-delay-1">Everything you need to know before joining the fight.</p>
+            <p class="text-tussle-iron text-center mb-8 sm:mb-12 text-base sm:text-lg reveal reveal-delay-1">Everything you need to know before joining the fight.</p>
 
             <div class="space-y-4 reveal reveal-delay-2" id="faq-list">
                 <!-- FAQ 1 -->
@@ -1429,16 +1464,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 4 -->
-                <div class="faq-item glass-card overflow-hidden">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left" onclick="toggleFaq(this)">
-                        <span class="font-headline font-bold text-base uppercase pr-4">How much will Tussle cost?</span>
-                        <span class="material-symbols-outlined text-orange transition-transform duration-300 faq-icon">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300">
-                        <p class="text-tussle-iron text-base leading-relaxed pb-6">Beta users will get exclusive early pricing starting at $49/mo per seat. Enterprise plans with team analytics and custom playbooks will be available at launch. All beta participants receive a lifetime 20% discount.</p>
-                    </div>
-                </div>
 
                 <!-- FAQ 5 -->
                 <div class="faq-item glass-card overflow-hidden">
@@ -1469,17 +1494,17 @@
     <div class="section-divider"></div>
 
     <!-- CTA / Waitlist -->
-    <section id="cta-section" class="py-20 px-6">
-        <div id="cta-box" class="max-w-4xl mx-auto cta-box p-12 md:p-20 text-center relative overflow-hidden rounded-2xl reveal">
+    <section id="cta-section" class="py-10 sm:py-20 px-6">
+        <div id="cta-box" class="max-w-4xl mx-auto cta-box p-6 sm:p-12 md:p-20 text-center relative overflow-hidden rounded-2xl reveal">
             <!-- Top gradient line -->
             <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-orange to-transparent"></div>
 
             <!-- Form Container -->
             <div id="form-container" class="form-container">
-                <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold font-headline mb-6 tracking-tight uppercase">
+                <h2 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold font-headline mb-4 sm:mb-6 tracking-tight uppercase">
                     DON'T WALK INTO ANOTHER DEAL <span class="text-orange">NAKED.</span>
                 </h2>
-                <p class="text-tussle-iron mb-12 text-lg md:text-xl font-body">
+                <p class="text-tussle-iron mb-8 sm:mb-12 text-base sm:text-lg md:text-xl font-body">
                     The beta is nearly full. Secure your spot and start closing with lethal precision.
                 </p>
 
@@ -1498,10 +1523,6 @@
                             Get Early Access
                         </button>
                     </div>
-                    <p class="text-[10px] font-label text-white/40 uppercase tracking-widest mt-1">
-                        <span class="material-symbols-outlined text-[12px] align-middle mr-1">lock</span>
-                        We'll never share your email. Read our <a href="#" class="underline hover:text-white transition-colors">Privacy Policy</a>.
-                    </p>
                 </form>
 
                 <!-- Fine Print -->
@@ -1527,33 +1548,44 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0e0e0e] py-16 px-6 border-t border-white/10">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 max-w-7xl mx-auto">
-            <div class="flex flex-col items-center md:items-start gap-4">
+    <footer class="bg-[#0e0e0e] py-8 sm:py-16 px-6 border-t border-white/10">
+        <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-10 max-w-7xl mx-auto">
+            <div class="flex flex-col items-center sm:items-start gap-3">
                 <div class="flex items-center gap-0.5">
                     <img src="logo.svg" alt="Tussle.ai" class="h-6" />
                     <span class="text-lg font-bold text-orange font-headline tracking-tighter">Tussle.ai</span>
                 </div>
-                <p class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40">&copy; <span id="year">2026</span> TUSSLE. BUILT FOR CLOSERS.</p>
+                <p class="font-label uppercase tracking-[0.1em] text-xs md:text-sm text-white/40">&copy; <span id="year">2026</span> TUSSLE. BUILT FOR CLOSERS.</p>
+                <!-- Mobile-only quick links -->
+                <div class="flex gap-4 sm:hidden mt-2">
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#features">Features</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
+                </div>
+                <div class="flex gap-4 sm:hidden">
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Privacy</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Terms</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="mailto:hello@tussle.ai">Contact</a>
+                </div>
             </div>
-            
-            <div class="flex flex-wrap gap-x-16 gap-y-8 justify-center md:justify-end">
+
+            <div class="hidden sm:grid grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-6 text-center sm:text-left">
                 <div class="flex flex-col gap-3">
-                    <span class="font-headline font-bold text-white uppercase text-xs tracking-wider">Product</span>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#features">Features</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
+                    <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Product</span>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#features">Features</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <span class="font-headline font-bold text-white uppercase text-xs tracking-wider">Legal</span>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#">Privacy Policy</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors" href="#">Terms of Service</a>
+                    <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Legal</span>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Terms of Service</a>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <span class="font-headline font-bold text-white uppercase text-xs tracking-wider">Connect</span>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="#"><span class="material-symbols-outlined text-[14px]">link</span> LinkedIn</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="#"><span class="material-symbols-outlined text-[14px]">link</span> Twitter / X</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-[10px] text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="mailto:hello@tussle.ai"><span class="material-symbols-outlined text-[14px]">mail</span> Contact</a>
+                    <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Connect</span>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="#"><span class="material-symbols-outlined text-[16px]">link</span> LinkedIn</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="#"><span class="material-symbols-outlined text-[16px]">link</span> Twitter / X</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="mailto:hello@tussle.ai"><span class="material-symbols-outlined text-[16px]">mail</span> Contact</a>
                 </div>
             </div>
         </div>
@@ -1578,8 +1610,8 @@
         // 4. SCROLL REVEAL ANIMATION
         // =============================================
         const observerOptions = {
-            threshold: 0.12,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px -30px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1632,7 +1664,7 @@
                     setTimeout(typeWriter, 1500);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
 
         const heroMockup = document.getElementById('hero-mockup');
         if (heroMockup) typingObserver.observe(heroMockup);
@@ -1813,7 +1845,7 @@
                     });
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
         counterObserver.observe(statsGrid);
 
         // Also re-trigger on hover for fun
@@ -1854,7 +1886,7 @@
                     });
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
         avatarStacks.forEach(stack => avatarObserver.observe(stack));
 
         // =============================================
@@ -1878,7 +1910,7 @@
                     });
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
         const painSection = document.getElementById('pain-section');
         if (painSection) emojiObserver.observe(painSection);
 
@@ -1903,7 +1935,7 @@
                     });
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
         if (stepsGrid) stepsObserver.observe(stepsGrid);
 
         // =============================================
@@ -1921,7 +1953,7 @@
             if (rebuttalCharIdx < rebuttalFullText.length) {
                 rebuttalEl.textContent += rebuttalFullText.charAt(rebuttalCharIdx);
                 rebuttalCharIdx++;
-                const d = rebuttalFullText.charAt(rebuttalCharIdx - 1) === ' ' ? 15 : Math.random() * 15 + 9;
+                const d = rebuttalFullText.charAt(rebuttalCharIdx - 1) === ' ' ? 20 : Math.random() * 30 + 20;
                 setTimeout(typeRebuttal, d);
             } else {
                 setTimeout(() => rebuttalEl.classList.remove('features-typing-cursor'), 1500);
@@ -1937,7 +1969,7 @@
             if (insightCharIdx < insightFullText.length) {
                 insightEl.textContent += insightFullText.charAt(insightCharIdx);
                 insightCharIdx++;
-                const d = insightFullText.charAt(insightCharIdx - 1) === ' ' ? 17 : Math.random() * 17 + 12;
+                const d = insightFullText.charAt(insightCharIdx - 1) === ' ' ? 20 : Math.random() * 30 + 20;
                 setTimeout(typeInsight, d);
             }
         }
@@ -1951,11 +1983,29 @@
             if (scriptCharIdx < scriptFullText.length) {
                 scriptEl.textContent += scriptFullText.charAt(scriptCharIdx);
                 scriptCharIdx++;
-                const d = scriptFullText.charAt(scriptCharIdx - 1) === ' ' ? 17 : Math.random() * 17 + 12;
+                const d = scriptFullText.charAt(scriptCharIdx - 1) === ' ' ? 20 : Math.random() * 30 + 20;
                 setTimeout(typeScript, d);
             } else {
                 setTimeout(() => scriptEl.classList.remove('features-typing-cursor'), 1500);
             }
+        }
+
+        // --- Reset and replay all typing animations ---
+        let typingInProgress = false;
+        function resetAndStartTyping() {
+            if (typingInProgress) return;
+            typingInProgress = true;
+            rebuttalCharIdx = 0;
+            insightCharIdx = 0;
+            scriptCharIdx = 0;
+            if (rebuttalEl) { rebuttalEl.textContent = ''; rebuttalEl.classList.add('features-typing-cursor'); }
+            if (insightEl) insightEl.textContent = '';
+            if (scriptEl) { scriptEl.textContent = ''; scriptEl.classList.add('features-typing-cursor'); }
+            setTimeout(typeRebuttal, 150);
+            setTimeout(typeInsight, 100);
+            setTimeout(typeScript, 900);
+            // Allow restart after all typing completes (generous buffer)
+            setTimeout(() => { typingInProgress = false; }, 5000);
         }
 
         // --- Cycling key phrases ---
@@ -2046,30 +2096,68 @@
             });
         }
 
-        // --- Master observer: trigger everything when features section scrolls in ---
+        // --- Master observer: trigger deal progress when features section scrolls in ---
+        let dealProgressStarted = false;
         const featuresObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !featuresInteractive) {
-                    featuresInteractive = true;
-
-                    // Animate deal progress bar
+                if (entry.isIntersecting && !dealProgressStarted) {
+                    dealProgressStarted = true;
                     if (dealProgress) {
                         setTimeout(() => dealProgress.classList.add('filled'), 300);
                     }
-
-                    // Start typing effects with staggered delays
-                    setTimeout(typeRebuttal, 600);
-                    setTimeout(typeInsight, 400);
-                    setTimeout(typeScript, 1800);
-
-                    // Start cycling data — slow & subtle
-                    setInterval(cyclePhrase, 10000);
-                    setInterval(cycleSentiment, 12000);
-                    setInterval(cycleQuote, 14000);
                 }
             });
-        }, { threshold: 0.25 });
+        }, { threshold: 0.05 });
         if (featuresPanel) featuresObserver.observe(featuresPanel);
+
+        // --- Typing observer: mobile = wait for scroll stop, desktop = trigger early ---
+        const isMobile = window.innerWidth < 768;
+        let rebuttalInView = false;
+        let scrollStopTimer = null;
+
+        const rebuttalBox = rebuttalEl ? rebuttalEl.closest('div[class*="bg-orange"]') || rebuttalEl.parentElement : null;
+        const typingTargetEl = rebuttalBox || document.getElementById('center-panel');
+
+        function tryStartTyping() {
+            if (rebuttalInView && !featuresInteractive) {
+                featuresInteractive = true;
+                resetAndStartTyping();
+            }
+        }
+
+        if (isMobile) {
+            // Mobile: only fire after user STOPS scrolling with box 60% in view
+            const typingCenterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    rebuttalInView = entry.isIntersecting;
+                    if (rebuttalInView && !featuresInteractive) {
+                        clearTimeout(scrollStopTimer);
+                        scrollStopTimer = setTimeout(tryStartTyping, 50);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            window.addEventListener('scroll', () => {
+                if (!featuresInteractive && rebuttalInView) {
+                    clearTimeout(scrollStopTimer);
+                    scrollStopTimer = setTimeout(tryStartTyping, 150);
+                }
+            }, { passive: true });
+
+            if (typingTargetEl) typingCenterObserver.observe(typingTargetEl);
+        } else {
+            // Desktop: fire as soon as 20% of the box is visible, no delay
+            const typingCenterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !featuresInteractive) {
+                        featuresInteractive = true;
+                        resetAndStartTyping();
+                    }
+                });
+            }, { rootMargin: "0px 0px -10% 0px", threshold: 0.2 });
+
+            if (typingTargetEl) typingCenterObserver.observe(typingTargetEl);
+        }
 
         // Close rate - static (no cycling)
         // const closeRateEl = document.getElementById('close-rate');
@@ -2094,7 +2182,7 @@
                     }, 8000);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
         if (featuresPanel) dataSimObserver.observe(featuresPanel);
         */
 
@@ -2136,7 +2224,7 @@
                     });
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
         if (testimonialsGrid) starObserver.observe(testimonialsGrid);
 
         // =============================================
@@ -2166,7 +2254,7 @@
                     entry.target.classList.remove('glow');
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.section-divider').forEach(d => dividerObserver.observe(d));
 
         // =============================================
@@ -2196,6 +2284,17 @@
         // 19. DYNAMIC YEAR
         // =============================================
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // =============================================
+        // 20. TWEMOJI - RENDER ALL EMOJIS AS HIGH-QUALITY IMAGES
+        // =============================================
+        if (typeof twemoji !== 'undefined') {
+            twemoji.parse(document.body, {
+                folder: 'svg',
+                ext: '.svg',
+                className: 'twemoji'
+            });
+        }
     </script>
 </body>
 </html>
