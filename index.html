@@ -953,21 +953,29 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 w-64 h-full bg-surface-high border-l border-orange/20 z-50 p-6">
-            <button id="mobile-menu-close" class="absolute top-4 right-4 text-white">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-            <div class="flex flex-col gap-6 mt-12">
-                <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
-                <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-white transition-colors" href="#features">Features</a>
-                <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-white transition-colors" href="#for-who">Use Cases</a>
-                <button onclick="scrollToCTA()" class="btn-primary text-xs mt-4">
-                    Join Waitlist
-                </button>
-            </div>
-        </div>
     </nav>
+
+    <!-- Mobile Menu (outside nav to avoid backdrop-filter stacking context bug) -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-[#1a1a1a] border-l border-orange/20 z-[200] p-6 shadow-2xl">
+        <button id="mobile-menu-close" class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+        <!-- Logo inside drawer -->
+        <a href="#" class="flex items-center gap-1 text-xl font-bold tracking-tighter text-orange font-headline mb-10 mt-1">
+            <img src="logo.svg" alt="Tussle.ai" class="h-7" />
+            Tussle.ai
+        </a>
+        <div class="flex flex-col gap-7">
+            <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-orange transition-colors" href="#how-it-works">How It Works</a>
+            <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-orange transition-colors" href="#features">Features</a>
+            <a class="font-label uppercase tracking-[0.1em] text-sm text-white/70 hover:text-orange transition-colors" href="#for-who">Use Cases</a>
+            <button onclick="scrollToCTA()" class="btn-primary text-xs mt-2 w-full">
+                Join Waitlist
+            </button>
+        </div>
+    </div>
+    <!-- Mobile menu backdrop -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-[199] hidden"></div>
 
     <!-- Hero Section -->
     <section class="relative pt-20 sm:pt-32 pb-10 px-6 overflow-hidden min-h-screen flex items-center">
@@ -1744,27 +1752,27 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
 
-        mobileMenuBtn.addEventListener('click', () => {
+        function openMobileMenu() {
             mobileMenu.classList.add('open');
-        });
+            mobileMenuBackdrop.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
 
-        mobileMenuClose.addEventListener('click', () => {
+        function closeMobileMenu() {
             mobileMenu.classList.remove('open');
-        });
+            mobileMenuBackdrop.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('open');
-            }
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // =============================================
