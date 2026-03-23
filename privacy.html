@@ -50,47 +50,22 @@
         .font-label { font-family: 'Roboto Condensed', sans-serif; }
         .text-orange { color: var(--orange); }
 
-        /* Nav */
-        nav {
-            background: rgba(8,8,8,0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-orange);
-            padding: 12px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-        nav .inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        nav a.logo {
-            font-family: 'Oxanium', sans-serif;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--orange);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        nav a.logo img { height: 28px; }
-        nav a.back {
+        /* btn-primary matches main site */
+        .btn-primary {
             font-family: 'Roboto Condensed', sans-serif;
             font-size: 0.75rem;
+            font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--text-dim);
+            padding: 8px 16px;
+            background: #FF3B00;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.2s;
+            display: inline-block;
         }
-        nav a.back:hover { color: var(--text); }
 
         /* Layout */
         .container {
@@ -220,7 +195,7 @@
                 <a class="font-label uppercase tracking-[0.1em] text-xs lg:text-sm text-white/70 hover:text-white transition-colors" href="index.html#features">Features</a>
                 <a class="font-label uppercase tracking-[0.1em] text-xs lg:text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap" href="index.html#for-who">Use Cases</a>
             </div>
-            <a href="index.html#cta" class="hidden md:block font-label uppercase tracking-[0.1em] text-xs font-bold px-4 py-2 bg-orange text-white rounded flex-shrink-0" style="background:#FF3B00;">Join Waitlist</a>
+            <a href="index.html#cta" class="hidden md:block btn-primary flex-shrink-0">Join Waitlist</a>
             <button id="mobile-menu-btn" class="md:hidden text-white">
                 <span class="material-symbols-outlined">menu</span>
             </button>
