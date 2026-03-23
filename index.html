@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>TUSSLE.AI | Weaponized Sales Intelligence</title>
-    <meta name="description" content="Tussle listens to your sales calls in real time, calculating margins and anchoring prices while you speak. Never leave money on the table again."/>
+    <title>Tussle.AI | Real-Time Sales Negotiation Intelligence</title>
+    <meta name="description" content="Tussle listens to your sales calls in real time, calculates margins, detects objections, and tells you exactly what to say. Never leave money on the table again."/>
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="sales AI, negotiation assistant, real-time sales intelligence, pricing AI, sales enablement">
+    <link rel="canonical" href="https://tussle-ai.vercel.app">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tussle.AI — Weaponized Sales Intelligence">
-    <meta property="og:description" content="Real-time AI that helps you negotiate better pricing and never leave money on the table.">
-    <meta property="og:image" content="https://tussle.ai/og-image.png">
-    <meta property="og:url" content="https://tussle.ai">
+    <meta property="og:title" content="Tussle.AI | Real-Time Sales Negotiation Intelligence">
+    <meta property="og:description" content="Tussle listens to your sales calls in real time, calculates margins, detects objections, and tells you exactly what to say. Never leave money on the table again.">
+    <meta property="og:image" content="https://tussle-ai.vercel.app/og-image.png">
+    <meta property="og:url" content="https://tussle-ai.vercel.app">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tussle.AI — Weaponized Sales Intelligence">
-    <meta name="twitter:description" content="Real-time AI that helps you negotiate better pricing and never leave money on the table.">
+    <meta name="twitter:title" content="Tussle.AI | Real-Time Sales Negotiation Intelligence">
+    <meta name="twitter:description" content="Tussle listens to your sales calls in real time, calculates margins, detects objections, and tells you exactly what to say. Never leave money on the table again.">
+    <meta name="twitter:image" content="https://tussle-ai.vercel.app/og-image.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -22,14 +26,32 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Tussle.AI",
-      "description": "Real-time sales intelligence for better pricing negotiations",
+      "description": "Real-time sales intelligence that listens to your sales calls, calculates margins, detects objections, and tells you exactly what to say.",
       "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://tussle-ai.vercel.app",
       "offers": {
         "@type": "Offer",
-        "availability": "https://schema.org/PreOrder"
-      }
+        "availability": "https://schema.org/PreOrder",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Real-time call listening",
+        "Margin calculation",
+        "Objection detection",
+        "Negotiation coaching",
+        "CRM integration"
+      ]
     }
     </script>
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://api.dicebear.com">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -41,7 +63,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
     <!-- Twemoji for consistent emoji rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous" defer></script>
 
     <!-- Tailwind Config -->
     <script id="tailwind-config">
@@ -80,7 +102,6 @@
 
     <!-- Custom Styles -->
     <style>
-        /* Twemoji rendering */
         img.twemoji {
             height: 1em;
             width: 1em;
@@ -97,25 +118,29 @@
             width: 1em;
         }
 
-        /* Background texture */
         body {
             background-color: #080808;
-            background-image: radial-gradient(rgba(255,59,0,0.03) 1px, transparent 1px);
-            background-size: 32px 32px;
             color: #E5E2E1;
             overflow-x: hidden;
         }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(#190c08 1px, transparent 1px),
+                linear-gradient(90deg, #190c08 1px, transparent 1px);
+            background-size: 40px 40px;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, white 50%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, white 50%, transparent 100%);
+        }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
-
-        /* Particle canvas (disabled) */
-        /* #particle-canvas {
-            ...
-        } */
 
         #particle-canvas {
             display: none;
@@ -125,7 +150,7 @@
             display: none;
         }
 
-        /* Custom cursor glow (desktop only) */
+        /* Custom cursor glow */
         #cursor-glow {
             position: fixed;
             width: 180px;
@@ -143,7 +168,6 @@
             opacity: 1;
         }
 
-        /* Glass Card */
         .glass-card {
             background: rgba(26,26,26,0.6);
             backdrop-filter: blur(12px);
@@ -159,7 +183,6 @@
             transform: translateY(-4px);
         }
 
-        /* Glow effects */
         .glow-primary {
             box-shadow: 0 0 20px rgba(255, 59, 0, 0.35);
         }
@@ -172,13 +195,11 @@
             box-shadow: 0 0 40px rgba(255, 59, 0, 0.3);
         }
 
-        /* Milled surface */
         .milled-surface {
             background-color: #0a0a0a;
             border: 1px solid rgba(255,255,255,0.07);
         }
 
-        /* 3D tilt effect */
         .tilt-card {
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
@@ -188,7 +209,6 @@
             transform: translateZ(20px);
         }
 
-        /* Section divider */
         .section-divider {
             height: 1px;
             width: 100%;
@@ -196,7 +216,6 @@
             opacity: 0.18;
         }
 
-        /* Testimonial card */
         .testimonial-card {
             background: #111111;
             border: 1px solid rgba(255, 59, 0, 0.12);
@@ -210,7 +229,6 @@
             transform: translateY(-6px) scale(1.02);
         }
 
-        /* CTA Box */
         .cta-box {
             background: #0f0f0f;
             border: 2px solid #FF3B00;
@@ -218,7 +236,6 @@
             box-shadow: 0 0 60px rgba(255, 59, 0, 0.15), inset 0 0 40px rgba(255, 59, 0, 0.03);
         }
 
-        /* Live pulse animation */
         @keyframes live-pulse {
             0% { box-shadow: 0 0 0 0 rgba(255, 59, 0, 0.6); }
             70% { box-shadow: 0 0 0 6px rgba(255, 59, 0, 0); }
@@ -229,7 +246,6 @@
             animation: live-pulse 2s infinite;
         }
 
-        /* Typing cursor blink */
         @keyframes blink-caret {
             0%, 100% { border-color: transparent; }
             50% { border-color: #FF3B00; }
@@ -241,7 +257,6 @@
             padding-right: 2px;
         }
 
-        /* Glow pulse for hero mockup */
         @keyframes glow-breathe {
             0%, 100% { box-shadow: 0 0 40px rgba(255, 59, 0, 0.2); }
             50% { box-shadow: 0 0 60px rgba(255, 59, 0, 0.4); }
@@ -251,7 +266,6 @@
             animation: glow-breathe 3s ease-in-out infinite;
         }
 
-        /* Float animation */
         @keyframes float-y {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
@@ -261,12 +275,10 @@
             animation: float-y 4s ease-in-out infinite;
         }
 
-        /* Stagger float for different timing */
         .float-delay-1 { animation-delay: 0s; }
         .float-delay-2 { animation-delay: 1.3s; }
         .float-delay-3 { animation-delay: 2.6s; }
 
-        /* Progress bar animation */
         .progress-bar {
             width: 0%;
             transition: width 1.2s ease;
@@ -277,7 +289,6 @@
             width: 83.1%;
         }
 
-        /* Scroll reveal */
         .reveal {
             opacity: 0;
             transform: translateY(28px);
@@ -293,7 +304,6 @@
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
 
-        /* Ripple effect */
         .ripple {
             position: relative;
             overflow: hidden;
@@ -315,7 +325,6 @@
             }
         }
 
-        /* Button styles */
         .btn-primary {
             position: relative;
             overflow: hidden;
@@ -362,13 +371,11 @@
             transform: translateY(-2px);
         }
 
-        /* Magnetic button wrapper */
         .magnetic-wrap {
             display: inline-block;
             transition: transform 0.2s ease-out;
         }
 
-        /* Mobile menu */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease;
@@ -378,7 +385,6 @@
             transform: translateX(0);
         }
 
-        /* Navbar shrink */
         nav.scrolled {
             background: rgba(19,19,19,0.75) !important;
         }
@@ -387,7 +393,6 @@
             transition: padding 0.3s ease;
         }
 
-        /* Form input */
         input.form-input {
             background: #111111 !important;
             border: 1px solid rgba(255,255,255,0.12) !important;
@@ -407,7 +412,6 @@
             color: #555555;
         }
 
-        /* Success state */
         .success-state {
             display: none;
         }
@@ -428,12 +432,10 @@
             }
         }
 
-        /* Hide form when success */
         .form-container.hide {
             display: none;
         }
 
-        /* Step icon hover spin */
         .step-icon {
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
@@ -442,12 +444,10 @@
             box-shadow: 0 0 30px rgba(255,59,0,0.3);
         }
 
-        /* Scroll-triggered counter animation */
         .count-up {
             transition: all 0.3s ease;
         }
 
-        /* Tooltip on hover for "Who it's for" icons */
         .persona-card {
             position: relative;
         }
@@ -719,13 +719,13 @@
         .emoji-glow::after {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 75%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.5);
-            width: 340px;
-            height: 340px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            background: rgba(255,59,0,0.22);
+            background: rgba(255,59,0,0.1);
             filter: blur(90px);
             z-index: -1;
             opacity: 0;
@@ -735,6 +735,7 @@
         .group:hover .emoji-glow::after {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
+
         }
 
         /* Persona emoji idle animations */
@@ -979,6 +980,7 @@
 
     <!-- Hero Section -->
     <section class="relative pt-20 sm:pt-32 pb-10 px-6 overflow-hidden min-h-screen flex items-center">
+
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center w-full">
             <!-- Left Column -->
             <div class="z-10 reveal">
@@ -1004,9 +1006,9 @@
                 <div class="space-y-4">
                     <div class="flex items-center gap-4">
                         <div class="flex -space-x-3 avatar-stack">
-                            <img alt="User 1" class="w-10 h-10 rounded-full border-2 border-bg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=b6e3f4"/>
-                            <img alt="User 2" class="w-10 h-10 rounded-full border-2 border-bg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf"/>
-                            <img alt="User 3" class="w-10 h-10 rounded-full border-2 border-bg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=c0aede"/>
+                            <img alt="Waitlist member Marcus" class="w-10 h-10 rounded-full border-2 border-bg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=b6e3f4" loading="lazy"/>
+                            <img alt="Waitlist member Priya" class="w-10 h-10 rounded-full border-2 border-bg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf" loading="lazy"/>
+                            <img alt="Waitlist member Derek" class="w-10 h-10 rounded-full border-2 border-bg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=c0aede" loading="lazy"/>
                             <div class="avatar-badge w-10 h-10 rounded-full bg-surface border-2 border-bg flex items-center justify-center text-[10px] font-bold font-headline">
                                 +1.2k
                             </div>
@@ -1088,7 +1090,7 @@
     <div class="section-divider"></div>
 
     <!-- Pain Section -->
-    <section id="pain-section" class="py-16 px-6 bg-[#0a0a0a]">
+    <section id="pain-section" class="py-16 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-label text-white text-center uppercase tracking-[0.4em] mb-12 text-lg font-bold reveal">SOUND FAMILIAR?</h2>
 
@@ -1179,7 +1181,7 @@
     <div class="section-divider"></div>
 
     <!-- Product Mockup Deep Dive -->
-    <section id="features" class="py-16 px-6 bg-[#0a0a0a]">
+    <section id="features" class="py-16 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-headline mb-4 text-center uppercase reveal">
                 Watch It <span class="text-orange">FIGHT FOR YOU</span>
@@ -1362,14 +1364,14 @@
     <div class="section-divider"></div>
 
     <!-- Testimonials -->
-    <section class="py-16 px-6 bg-[#0a0a0a]">
+    <section class="py-16 px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Counter Header -->
             <div class="flex flex-col items-center mb-16 text-center reveal">
                 <div class="flex -space-x-4 mb-6 avatar-stack">
-                    <img alt="User avatar Marcus T." class="w-12 h-12 rounded-full border-2 border-black" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=b6e3f4"/>
-                    <img alt="User avatar Priya S." class="w-12 h-12 rounded-full border-2 border-black" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf"/>
-                    <img alt="User avatar Derek L." class="w-12 h-12 rounded-full border-2 border-black" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=c0aede"/>
+                    <img alt="User avatar Marcus T." class="w-12 h-12 rounded-full border-2 border-black" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=b6e3f4" loading="lazy"/>
+                    <img alt="User avatar Priya S." class="w-12 h-12 rounded-full border-2 border-black" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=ffdfbf" loading="lazy"/>
+                    <img alt="User avatar Derek L." class="w-12 h-12 rounded-full border-2 border-black" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Derek&backgroundColor=c0aede" loading="lazy"/>
                     <div class="avatar-badge w-12 h-12 rounded-full bg-surface border-2 border-black flex items-center justify-center text-[10px] font-bold font-headline">
                         +1.2k
                     </div>
@@ -1517,7 +1519,9 @@
                 </p>
 
                 <!-- Waitlist Form -->
-                <form id="waitlist-form" action="https://formspree.io/f/placeholder" method="POST" class="flex flex-col max-w-xl mx-auto mb-6 gap-4">
+                <form id="waitlist-form" action="https://formspree.io/f/xpwzgkqr" method="POST" class="flex flex-col max-w-xl mx-auto mb-6 gap-4">
+                    <input type="hidden" name="_subject" value="New Tussle.AI Waitlist Signup">
+                    <input type="hidden" name="_next" value="https://tussle-ai.vercel.app/#cta">
                     <div class="flex flex-col md:flex-row gap-4">
                         <input
                             id="email-input"
@@ -1602,9 +1606,8 @@
     <!-- JavaScript -->
     <script>
 
-
         // =============================================
-        // 2. CURSOR GLOW FOLLOW
+        // 1. CURSOR GLOW FOLLOW
         // =============================================
         const cursorGlow = document.getElementById('cursor-glow');
         document.addEventListener('mousemove', (e) => {
@@ -1615,7 +1618,7 @@
 
 
         // =============================================
-        // 4. SCROLL REVEAL ANIMATION
+        // 2. SCROLL REVEAL ANIMATION
         // =============================================
         const observerOptions = {
             threshold: 0.05,
@@ -1633,7 +1636,7 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         // =============================================
-        // 5. PROGRESS BAR ANIMATION
+        // 3. PROGRESS BAR ANIMATION
         // =============================================
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -1642,7 +1645,7 @@
         });
 
         // =============================================
-        // 6. TYPING EFFECT ON SUGGESTION BOX
+        // 4. TYPING EFFECT ON SUGGESTION BOX
         // =============================================
         const typingText = document.getElementById('typing-text');
         const suggestionText = `"Say: 'We can do $8,400 if you commit by Friday — that's our best number and it works for both sides.'"` ;
@@ -1678,7 +1681,7 @@
         if (heroMockup) typingObserver.observe(heroMockup);
 
         // =============================================
-        // 7. 3D TILT EFFECT ON HERO MOCKUP
+        // 5. 3D TILT EFFECT ON HERO MOCKUP
         // =============================================
         if (heroMockup) {
             heroMockup.addEventListener('mousemove', (e) => {
@@ -1702,7 +1705,7 @@
         }
 
         // =============================================
-        // 8. RIPPLE EFFECT ON BUTTONS
+        // 6. RIPPLE EFFECT ON BUTTONS
         // =============================================
         document.querySelectorAll('.ripple').forEach(button => {
             button.addEventListener('click', function(e) {
@@ -1719,7 +1722,7 @@
         });
 
         // =============================================
-        // 9. MAGNETIC BUTTON EFFECT
+        // 7. MAGNETIC BUTTON EFFECT
         // =============================================
         document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
             const btn = wrap.querySelector('button');
@@ -1735,7 +1738,7 @@
         });
 
         // =============================================
-        // 10. NAVBAR SHRINK ON SCROLL
+        // 8. NAVBAR SHRINK ON SCROLL
         // =============================================
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
@@ -1747,7 +1750,7 @@
         });
 
         // =============================================
-        // 11. MOBILE MENU
+        // 9. MOBILE MENU
         // =============================================
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1776,7 +1779,7 @@
         });
 
         // =============================================
-        // 12. SCROLL FUNCTIONS
+        // 10. SCROLL FUNCTIONS
         // =============================================
         function scrollToCTA() {
             document.getElementById('cta-section').scrollIntoView({ behavior: 'smooth' });
@@ -1787,7 +1790,7 @@
         }
 
         // =============================================
-        // 13. WAITLIST FORM SUBMISSION
+        // 11. WAITLIST FORM SUBMISSION
         // =============================================
         const waitlistForm = document.getElementById('waitlist-form');
         const formContainer = document.getElementById('form-container');
@@ -1808,18 +1811,39 @@
             e.target.setCustomValidity('');
         });
 
-        waitlistForm.addEventListener('submit', (e) => {
+        waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = emailInput.value;
-            if (email && email.includes('@')) {
-                formContainer.classList.add('hide');
-                successState.classList.add('show');
-                console.log('Waitlist signup:', email);
+            if (!email || !email.includes('@')) return;
+
+            const submitBtn = waitlistForm.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Joining...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(waitlistForm);
+                const response = await fetch(waitlistForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    formContainer.classList.add('hide');
+                    successState.classList.add('show');
+                } else {
+                    submitBtn.textContent = 'Get Early Access';
+                    submitBtn.disabled = false;
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (err) {
+                submitBtn.textContent = 'Get Early Access';
+                submitBtn.disabled = false;
+                alert('Something went wrong. Please try again.');
             }
         });
 
         // =============================================
-        // 14. COUNTER ANIMATION (scroll-triggered)
+        // 12. COUNTER ANIMATION (scroll-triggered)
         // =============================================
         const statsGrid = document.getElementById('stats-grid');
         let countersAnimated = false;
@@ -1867,7 +1891,7 @@
         });
 
         // =============================================
-        // 15. SMOOTH PARALLAX ON SCROLL (for hero glow)
+        // 13. SMOOTH PARALLAX ON SCROLL (for hero glow)
         // =============================================
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
@@ -1878,7 +1902,7 @@
         });
 
         // =============================================
-        // 15b. AVATAR STACK POP-IN ANIMATION
+        // 14. AVATAR STACK POP-IN ANIMATION
         // =============================================
         const avatarStacks = document.querySelectorAll('.avatar-stack');
         const avatarObserver = new IntersectionObserver((entries) => {
@@ -1898,14 +1922,14 @@
         avatarStacks.forEach(stack => avatarObserver.observe(stack));
 
         // =============================================
-        // 16. REVEAL-LEFT / REVEAL-RIGHT / REVEAL-SCALE OBSERVERS
+        // 15. REVEAL-LEFT / REVEAL-RIGHT / REVEAL-SCALE OBSERVERS
         // =============================================
         document.querySelectorAll('.reveal-left, .reveal-right, .reveal-scale').forEach(el => {
             observer.observe(el);
         });
 
         // =============================================
-        // 17. EMOJI BOUNCE ON SCROLL INTO VIEW
+        // 16. EMOJI BOUNCE ON SCROLL INTO VIEW
         // =============================================
         const emojiObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1923,7 +1947,7 @@
         if (painSection) emojiObserver.observe(painSection);
 
         // =============================================
-        // 18. HOW IT WORKS - CONNECTOR LINE DRAW + STEP NUMBERS
+        // 17. HOW IT WORKS - CONNECTOR LINE DRAW + STEP NUMBERS
         // =============================================
         const stepsGrid = document.getElementById('steps-grid');
         const connectorLine = document.getElementById('connector-line');
@@ -1947,7 +1971,7 @@
         if (stepsGrid) stepsObserver.observe(stepsGrid);
 
         // =============================================
-        // 19. FEATURES SECTION - INTERACTIVE ELEMENTS
+        // 18. FEATURES SECTION - INTERACTIVE ELEMENTS
         // =============================================
         const featuresPanel = document.getElementById('features-panel');
         let featuresInteractive = false;
@@ -2167,35 +2191,9 @@
             if (typingTargetEl) typingCenterObserver.observe(typingTargetEl);
         }
 
-        // Close rate - static (no cycling)
-        // const closeRateEl = document.getElementById('close-rate');
-        const closeRates = ['74% CLOSE RATE', '76% CLOSE RATE', '72% CLOSE RATE', '78% CLOSE RATE', '75% CLOSE RATE', '80% CLOSE RATE'];
-        let closeRateIndex = 0;
-        let dataSimStarted = false;
-
-        /*
-        const dataSimObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !dataSimStarted) {
-                    dataSimStarted = true;
-                    setInterval(() => {
-                        closeRateIndex = (closeRateIndex + 1) % closeRates.length;
-                        if (closeRateEl) {
-                            closeRateEl.style.opacity = '0';
-                            setTimeout(() => {
-                                closeRateEl.textContent = closeRates[closeRateIndex];
-                                closeRateEl.style.opacity = '1';
-                            }, 300);
-                        }
-                    }, 8000);
-                }
-            });
-        }, { threshold: 0.1 });
-        if (featuresPanel) dataSimObserver.observe(featuresPanel);
-        */
 
         // =============================================
-        // 20. TESTIMONIAL CARDS - TILT ON HOVER + STAR POP
+        // 19. TESTIMONIAL CARDS - TILT ON HOVER + STAR POP
         // =============================================
         document.querySelectorAll('[data-tilt-testimonial]').forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -2236,7 +2234,7 @@
         if (testimonialsGrid) starObserver.observe(testimonialsGrid);
 
         // =============================================
-        // 21. CTA SECTION - ATTENTION SHAKE
+        // 20. CTA SECTION - ATTENTION SHAKE
         // =============================================
         const ctaBox = document.getElementById('cta-box');
         let ctaShaken = false;
@@ -2252,7 +2250,7 @@
         if (ctaBox) ctaObserver.observe(ctaBox);
 
         // =============================================
-        // 22. SECTION DIVIDER GLOW ON SCROLL
+        // 21. SECTION DIVIDER GLOW ON SCROLL
         // =============================================
         const dividerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2266,7 +2264,7 @@
         document.querySelectorAll('.section-divider').forEach(d => dividerObserver.observe(d));
 
         // =============================================
-        // 18. FAQ TOGGLE
+        // 22. FAQ TOGGLE
         // =============================================
         function toggleFaq(button) {
             const answer = button.nextElementSibling;
@@ -2289,12 +2287,12 @@
             }
         }
         // =============================================
-        // 19. DYNAMIC YEAR
+        // 23. DYNAMIC YEAR
         // =============================================
         document.getElementById('year').textContent = new Date().getFullYear();
 
         // =============================================
-        // 20. TWEMOJI - RENDER ALL EMOJIS AS HIGH-QUALITY IMAGES
+        // 24. TWEMOJI - RENDER ALL EMOJIS AS HIGH-QUALITY IMAGES
         // =============================================
         if (typeof twemoji !== 'undefined') {
             twemoji.parse(document.body, {
