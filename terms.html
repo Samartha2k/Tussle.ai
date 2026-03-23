@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Terms of Service — Tussle.AI</title>
+    <meta name="description" content="Tussle.AI Terms of Service — the rules of engagement."/>
+    <meta name="robots" content="noindex"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@700;800;900&family=Inter:wght@400;500;600&family=Roboto+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <style>
+        :root {
+            --orange: #FF3B00;
+            --orange-glow: rgba(255,59,0,0.25);
+            --bg: #080808;
+            --surface: #111111;
+            --surface-high: #1a1a1a;
+            --border: rgba(255,255,255,0.06);
+            --border-orange: rgba(255,59,0,0.2);
+            --text: #E5E2E1;
+            --text-dim: #888888;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(to right, rgba(25,12,8,0.9) 0%, rgba(8,8,8,0.4) 50%, rgba(25,12,8,0.9) 100%),
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+        .font-headline { font-family: 'Oxanium', sans-serif; }
+        .font-label { font-family: 'Roboto Condensed', sans-serif; }
+        .text-orange { color: var(--orange); }
+
+        nav {
+            background: rgba(8,8,8,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-orange);
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        nav .inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav a.logo {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--orange);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        nav a.logo img { height: 28px; }
+        nav a.back {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+        nav a.back:hover { color: var(--text); }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+        .page-header {
+            border-bottom: 1px solid var(--border-orange);
+            padding-bottom: 40px;
+            margin-bottom: 56px;
+        }
+        .page-label {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 12px;
+            display: block;
+        }
+        h1 {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .meta { font-size: 0.85rem; color: var(--text-dim); }
+        .section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top-color: var(--border-orange);
+            border-radius: 8px;
+        }
+        h2 {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--orange);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        h2 .material-symbols-outlined { font-size: 18px; }
+        p {
+            color: var(--text-dim);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+        p:last-child { margin-bottom: 0; }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 14px;
+        }
+        ul li {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            padding: 6px 0 6px 20px;
+            position: relative;
+            line-height: 1.65;
+        }
+        ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: 700;
+        }
+        strong { color: var(--text); font-weight: 600; }
+        a.inline-link {
+            color: var(--orange);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,59,0,0.3);
+            transition: border-color 0.2s;
+        }
+        a.inline-link:hover { border-color: var(--orange); }
+        .warning-box {
+            background: rgba(255,59,0,0.06);
+            border: 1px solid rgba(255,59,0,0.25);
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-bottom: 14px;
+        }
+        .warning-box p {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        footer p {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin: 0;
+        }
+        footer a { color: var(--orange); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="inner">
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="Tussle.ai"/>
+                Tussle.ai
+            </a>
+            <a href="index.html" class="back">
+                <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <span class="page-label">Legal</span>
+            <h1>Terms of <span class="text-orange">Service.</span></h1>
+            <p class="meta">Last updated: March 2026 &nbsp;·&nbsp; Effective: March 2026</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">gavel</span>Agreement to Terms</h2>
+            <p>These Terms of Service ("Terms") govern your access to and use of Tussle.AI's website, waitlist, and software product (collectively, the "Service"), operated by Tussle.AI ("Tussle", "we", "us", "our").</p>
+            <p>By joining our waitlist, creating an account, or using the Service in any way, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+            <p>These Terms apply to all visitors, waitlist members, beta users, and any other persons who access or use the Service.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">science</span>Beta Access</h2>
+            <div class="warning-box">
+                <p>⚡ <strong>Tussle.AI is currently in pre-launch / beta.</strong> The product is not yet publicly available. Features, pricing, and functionality are subject to change without notice.</p>
+            </div>
+            <p>By joining the waitlist you acknowledge:</p>
+            <ul>
+                <li>Beta access is granted at our sole discretion — being on the waitlist does not guarantee access</li>
+                <li>The beta product may contain bugs, errors, or incomplete features</li>
+                <li>We may modify, suspend, or terminate beta access at any time without liability</li>
+                <li>Beta features and pricing described anywhere on this site are indicative only</li>
+                <li>Feedback you provide during beta may be used to improve the product without compensation</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">check_circle</span>Acceptable Use</h2>
+            <p>Tussle is a professional sales intelligence tool. You agree to use it only for lawful, legitimate business purposes. You must not:</p>
+            <ul>
+                <li>Use Tussle to record or monitor calls without the knowledge and consent of all parties, where required by applicable law</li>
+                <li>Use the Service to engage in deceptive, fraudulent, or manipulative sales practices</li>
+                <li>Attempt to reverse-engineer, decompile, or extract the source code of our AI models or software</li>
+                <li>Resell, sublicense, or distribute the Service without our written consent</li>
+                <li>Use automated tools to scrape, crawl, or extract data from the Service</li>
+                <li>Attempt to gain unauthorised access to our systems or other users' accounts</li>
+                <li>Use the Service in any way that violates applicable laws or regulations</li>
+                <li>Introduce malware, viruses, or any malicious code into the Service</li>
+                <li>Impersonate Tussle or any other person or entity</li>
+            </ul>
+            <p>We reserve the right to terminate your access immediately and without notice for any violation of these terms.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">mic</span>Call Recording & Consent Laws</h2>
+            <div class="warning-box">
+                <p>⚠️ <strong>You are solely responsible for complying with all applicable call recording and monitoring laws in your jurisdiction.</strong></p>
+            </div>
+            <p>Call recording and AI monitoring laws vary significantly by country and state. In many jurisdictions (including California under CCPA, the EU under GDPR, and others), you must obtain explicit consent from all parties before recording or monitoring a call.</p>
+            <ul>
+                <li>You must obtain all legally required consents before using Tussle on any call</li>
+                <li>Tussle does not provide legal advice on consent requirements</li>
+                <li>We are not liable for any fines, penalties, or legal claims arising from your failure to obtain required consents</li>
+                <li>We recommend consulting a lawyer in your jurisdiction before deploying Tussle in a regulated environment</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">account_circle</span>Your Account</h2>
+            <p>When you create an account, you are responsible for:</p>
+            <ul>
+                <li>Providing accurate and complete information</li>
+                <li>Maintaining the confidentiality of your login credentials</li>
+                <li>All activity that occurs under your account</li>
+                <li>Notifying us immediately of any unauthorised use at <a href="mailto:security@tussle.ai" class="inline-link">security@tussle.ai</a></li>
+            </ul>
+            <p>One account per person or business entity. You may not share account credentials or allow multiple individuals to use the same account unless you have a multi-seat plan.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">copyright</span>Intellectual Property</h2>
+            <p>Tussle.AI and all its content — including the AI models, software, algorithms, brand, design, copy, and all product features — are the exclusive intellectual property of Tussle.AI and are protected by copyright, trademark, and other applicable laws.</p>
+            <ul>
+                <li>You are granted a limited, non-exclusive, non-transferable licence to use the Service for your internal business purposes</li>
+                <li>This licence does not include the right to copy, modify, distribute, sell, or create derivative works of the Service</li>
+                <li><strong>Your data remains yours.</strong> We claim no ownership over your deal parameters, call content, or business information</li>
+                <li>The "Tussle.AI" name, logo, and "Weaponized Sales Intelligence" tagline are trademarks of Tussle.AI</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">payments</span>Pricing & Payment</h2>
+            <p>Tussle.AI is currently in pre-launch. No payment is required to join the waitlist or participate in the beta program.</p>
+            <p>When paid plans are introduced:</p>
+            <ul>
+                <li>Pricing will be communicated clearly before any charge is made</li>
+                <li>Subscriptions will renew automatically unless cancelled</li>
+                <li>You may cancel at any time; refunds are subject to our refund policy (to be published at launch)</li>
+                <li>We reserve the right to change pricing with 30 days' written notice to existing subscribers</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">warning</span>Disclaimers</h2>
+            <div class="warning-box">
+                <p>⚡ <strong>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</strong></p>
+            </div>
+            <p>To the fullest extent permitted by applicable law, Tussle.AI expressly disclaims all warranties, express or implied, including but not limited to:</p>
+            <ul>
+                <li>Warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
+                <li>Warranties that the Service will be uninterrupted, error-free, or secure</li>
+                <li>Warranties regarding the accuracy of AI-generated negotiation suggestions</li>
+                <li>Warranties that using Tussle will result in closed deals or increased revenue</li>
+            </ul>
+            <p>Tussle's AI suggestions are tools to inform your judgement, not replace it. You remain solely responsible for all business decisions and negotiation outcomes.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">block</span>Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law, Tussle.AI and its directors, employees, partners, and agents shall not be liable for:</p>
+            <ul>
+                <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Loss of profits, revenue, business, data, or goodwill</li>
+                <li>Damages arising from lost deals, missed commissions, or pricing errors</li>
+                <li>Any damages arising from use of or reliance on AI-generated suggestions</li>
+                <li>Any damages exceeding the amount you paid us in the 12 months preceding the claim (or $0 if you are on a free/beta plan)</li>
+            </ul>
+            <p>Some jurisdictions do not allow limitation of liability for certain types of damages. In such cases, our liability is limited to the fullest extent permitted by law.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">balance</span>Indemnification</h2>
+            <p>You agree to defend, indemnify, and hold harmless Tussle.AI from any claims, losses, damages, liabilities, costs, and expenses (including legal fees) arising from:</p>
+            <ul>
+                <li>Your use of the Service in violation of these Terms</li>
+                <li>Your violation of any applicable law, including call recording consent laws</li>
+                <li>Your infringement of any third-party rights</li>
+                <li>Any content or data you input into the Service</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">link_off</span>Third-Party Integrations</h2>
+            <p>Tussle integrates with third-party platforms including Zoom, Microsoft Teams, Google Meet, Salesforce, and HubSpot. These integrations are subject to the terms and privacy policies of those respective platforms.</p>
+            <p>We are not responsible for the availability, accuracy, or conduct of third-party services. Connecting a third-party service to Tussle does not transfer responsibility for that service's terms to us.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">cancel</span>Termination</h2>
+            <p>Either party may terminate the relationship at any time:</p>
+            <ul>
+                <li><strong>You:</strong> You may stop using the Service and request deletion of your account at any time by emailing <a href="mailto:hello@tussle.ai" class="inline-link">hello@tussle.ai</a></li>
+                <li><strong>Us:</strong> We may suspend or terminate your access immediately if you violate these Terms, without refund or liability</li>
+                <li>Upon termination, your licence to use the Service ends immediately</li>
+                <li>Sections on intellectual property, limitation of liability, and indemnification survive termination</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">edit_note</span>Changes to These Terms</h2>
+            <p>We may update these Terms from time to time. We'll post the updated version here and update the "Last updated" date. For material changes, we'll notify you via email at least 14 days before they take effect.</p>
+            <p>Continued use of the Service after updated Terms take effect constitutes your acceptance of the new Terms.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">public</span>Governing Law</h2>
+            <p>These Terms are governed by the laws of India, without regard to conflict of law principles. Any disputes arising from these Terms or your use of the Service shall be subject to the exclusive jurisdiction of the courts of India.</p>
+            <p>If you are a consumer in the EU or UK, you may also have rights under your local consumer protection laws that we cannot override by contract.</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="material-symbols-outlined">mail</span>Contact</h2>
+            <p>Questions about these Terms? We answer fast.</p>
+            <ul>
+                <li><strong>Legal enquiries:</strong> <a href="mailto:legal@tussle.ai" class="inline-link">legal@tussle.ai</a></li>
+                <li><strong>General:</strong> <a href="mailto:hello@tussle.ai" class="inline-link">hello@tussle.ai</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© <script>document.write(new Date().getFullYear())</script> Tussle.AI · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · Built For Closers.</p>
+    </footer>
+</body>
+</html>

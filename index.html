@@ -628,6 +628,37 @@
             transition: transform 0.15s ease-out;
         }
 
+        /* Detection grid cell flash on data update */
+        @keyframes cell-flash {
+            0%   { background: rgba(255,69,0,0.15); border-color: rgba(255,69,0,0.5); }
+            100% { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.05); }
+        }
+        .cell-flash {
+            animation: cell-flash 0.6s ease-out forwards;
+        }
+
+        /* Close rate count-up glow */
+        @keyframes rate-pop {
+            0%   { transform: scale(1.2); color: #4ade80; text-shadow: 0 0 12px #4ade80; }
+            100% { transform: scale(1);   color: #4ade80; text-shadow: none; }
+        }
+        .rate-pop { animation: rate-pop 0.5s ease-out forwards; }
+
+        /* Prospect quote recording dot */
+        @keyframes rec-blink {
+            0%,100% { opacity: 1; }
+            50%     { opacity: 0.2; }
+        }
+        .rec-dot {
+            display: inline-block;
+            width: 7px; height: 7px;
+            background: #FF3B00;
+            border-radius: 50%;
+            animation: rec-blink 1s ease-in-out infinite;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
         /* Simulated live data pulse */
         @keyframes data-pulse {
             0%, 100% { opacity: 1; }
@@ -844,6 +875,42 @@
         }
         .insight-glow {
             animation: insight-glow 3s ease-in-out infinite;
+        }
+
+        /* Hover animations inside Watch It Fight For You window */
+        .panel-card {
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+            cursor: default;
+        }
+        .panel-card:hover {
+            border-color: rgba(255,69,0,0.35) !important;
+            box-shadow: 0 0 18px rgba(255,69,0,0.12);
+            transform: translateY(-2px);
+        }
+        .detection-cell {
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+            cursor: default;
+        }
+        .detection-cell:hover {
+            background: rgba(255,69,0,0.07) !important;
+            border-color: rgba(255,69,0,0.25) !important;
+            transform: scale(1.02);
+        }
+        .rebuttal-box {
+            transition: box-shadow 0.25s ease, background 0.25s ease;
+            cursor: default;
+        }
+        .rebuttal-box:hover {
+            background: rgba(255,69,0,0.1) !important;
+            box-shadow: 0 0 24px rgba(255,69,0,0.18), inset 0 0 20px rgba(255,69,0,0.05);
+        }
+        .insight-panel {
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+            cursor: default;
+        }
+        .insight-panel:hover {
+            box-shadow: 0 0 35px rgba(255,69,0,0.25);
+            border-color: rgba(255,69,0,0.7) !important;
         }
 
         /* Key phrase fade transition */
@@ -1193,7 +1260,7 @@
             <div id="features-panel" class="grid lg:grid-cols-12 gap-6 bg-surface rounded-2xl p-6 md:p-8 border border-white/5 reveal reveal-delay-2 relative">
                 <!-- Left Panel - Deal Setup -->
                 <div class="lg:col-span-3 space-y-6">
-                    <div class="p-4 bg-[#0e0e0e] rounded border border-white/5">
+                    <div class="panel-card p-4 bg-[#0e0e0e] rounded border border-white/5">
                         <label class="font-label text-xs uppercase text-white/40 mb-2 block tracking-wider">Deal Target</label>
                         <div class="h-1 bg-surface-high rounded-full overflow-hidden mb-2">
                             <div id="deal-progress" class="deal-progress h-full bg-orange"></div>
@@ -1204,7 +1271,7 @@
                         </div>
                     </div>
 
-                    <div class="p-4 bg-[#0e0e0e] rounded border border-white/5">
+                    <div class="panel-card p-4 bg-[#0e0e0e] rounded border border-white/5">
                         <label class="font-label text-xs uppercase text-white/40 mb-3 block tracking-wider">Competitive Angle</label>
                         <div class="space-y-2">
                             <div id="angle-roi" class="angle-option active bg-surface-high p-3 text-sm rounded border border-orange/20 font-label tracking-wide text-orange">
@@ -1216,7 +1283,7 @@
                         </div>
                     </div>
 
-                    <div class="p-4 bg-[#0e0e0e] rounded border border-orange/20">
+                    <div class="panel-card p-4 bg-[#0e0e0e] rounded border border-orange/20">
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-orange text-xl shield-pulse">shield</span>
                             <div>
@@ -1251,7 +1318,7 @@
                     <!-- Content -->
                     <div class="px-3 sm:px-4 pb-3 sm:pb-4 space-y-3 sm:space-y-4">
                         <!-- Prospect Quote -->
-                        <div class="bg-surface p-3 sm:p-4 rounded-lg border border-orange/20">
+                        <div class="panel-card bg-surface p-3 sm:p-4 rounded-lg border border-orange/20">
                             <div class="flex items-center gap-2 sm:gap-3 mb-2">
                                 <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-orange/20 flex items-center justify-center border border-orange/30 flex-shrink-0">
                                     <div class="waveform">
@@ -1262,7 +1329,7 @@
                                         <div class="bar"></div>
                                     </div>
                                 </div>
-                                <p class="text-xs font-label text-orange font-bold uppercase tracking-wider">Prospect Speaking...</p>
+                                <p class="text-xs font-label text-orange font-bold uppercase tracking-wider"><span class="rec-dot"></span>Prospect Speaking...</p>
                                 <div class="ml-auto text-right flex-shrink-0">
                                     <p class="text-[10px] font-label text-white/30 uppercase">Sentiment</p>
                                     <p id="sentiment-badge" class="text-xs sm:text-sm font-bold text-yellow-500 sentiment-badge">RESISTANCE</p>
@@ -1273,18 +1340,18 @@
 
                         <!-- Detection Grid -->
                         <div class="grid grid-cols-2 gap-3">
-                            <div class="bg-surface/30 p-3 rounded border border-white/5">
+                            <div class="detection-cell bg-surface/30 p-3 rounded border border-white/5">
                                 <p class="text-[10px] font-label text-white/30 uppercase mb-1">Key Phrase Detected</p>
                                 <p id="key-phrase" class="text-sm text-white phrase-fade">"Budget Constraints"</p>
                             </div>
-                            <div class="bg-surface/30 p-3 rounded border border-white/5">
+                            <div class="detection-cell bg-surface/30 p-3 rounded border border-white/5">
                                 <p class="text-[10px] font-label text-white/30 uppercase mb-1">Live Probability</p>
                                 <p id="close-rate" class="text-sm font-bold text-green-500">74% CLOSE RATE</p>
                             </div>
                         </div>
 
                         <!-- Rebuttal Box -->
-                        <div class="bg-orange/5 p-4 rounded-lg border-l-4 border-orange">
+                        <div class="rebuttal-box bg-orange/5 p-4 rounded-lg border-l-4 border-orange">
                             <div class="flex items-start gap-3">
                                 <span class="material-symbols-outlined text-orange text-xl flex-shrink-0">bolt</span>
                                 <div>
@@ -1298,7 +1365,7 @@
 
                 <!-- Right Panel - Live Insight -->
                 <div class="lg:col-span-3">
-                    <div class="h-full bg-[#0e0e0e] rounded-xl p-6 border border-orange/40 flex flex-col justify-center insight-glow">
+                    <div class="h-full bg-[#0e0e0e] rounded-xl p-6 border border-orange/40 flex flex-col justify-center insight-glow insight-panel">
                         <div class="bg-orange/10 p-3 w-fit rounded mb-4">
                             <span class="material-symbols-outlined text-orange text-2xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
                         </div>
@@ -1575,8 +1642,8 @@
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
                 </div>
                 <div class="flex gap-4 sm:hidden">
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Privacy</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Terms</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="privacy.html">Privacy</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="terms.html">Terms</a>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="mailto:hello@tussle.ai">Contact</a>
                 </div>
             </div>
@@ -1590,8 +1657,8 @@
                 </div>
                 <div class="flex flex-col gap-3">
                     <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Legal</span>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Privacy Policy</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#">Terms of Service</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="privacy.html">Privacy Policy</a>
+                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="terms.html">Terms of Service</a>
                 </div>
                 <div class="flex flex-col gap-3">
                     <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Connect</span>
@@ -2191,9 +2258,55 @@
             if (typingTargetEl) typingCenterObserver.observe(typingTargetEl);
         }
 
+        // =============================================
+        // 19. FEATURES PANEL - INTERNAL ANIMATIONS
+        // =============================================
+
+        // Activate scan line on center panel
+        const scanLineEl = document.querySelector('#center-panel .scan-line');
+        if (scanLineEl) scanLineEl.classList.add('active');
+
+        // Close rate count-up when interactive fires
+        const closeRateEl = document.getElementById('close-rate');
+        function animateCloseRate(target) {
+            if (!closeRateEl) return;
+            let current = 0;
+            const step = Math.ceil(target / 40);
+            const timer = setInterval(() => {
+                current = Math.min(current + step, target);
+                closeRateEl.textContent = current + '% CLOSE RATE';
+                if (current >= target) {
+                    clearInterval(timer);
+                    closeRateEl.classList.add('rate-pop');
+                    setTimeout(() => closeRateEl.classList.remove('rate-pop'), 500);
+                }
+            }, 30);
+        }
+
+        // Flash detection grid cells on phrase/sentiment cycle
+        function flashDetectionCells() {
+            document.querySelectorAll('#center-panel .grid > div').forEach(cell => {
+                cell.classList.remove('cell-flash');
+                void cell.offsetWidth; // reflow
+                cell.classList.add('cell-flash');
+            });
+        }
+
+        // Patch cyclePhrase and cycleSentiment to also flash cells
+        const _origCyclePhrase = cyclePhrase;
+        cyclePhrase = function() { _origCyclePhrase(); flashDetectionCells(); };
+        const _origCycleSentiment = cycleSentiment;
+        cycleSentiment = function() { _origCycleSentiment(); flashDetectionCells(); };
+
+        // Hook into featuresInteractive start
+        const _origResetAndStart = resetAndStartTyping;
+        resetAndStartTyping = function() {
+            _origResetAndStart();
+            animateCloseRate(74);
+        };
 
         // =============================================
-        // 19. TESTIMONIAL CARDS - TILT ON HOVER + STAR POP
+        // 20. TESTIMONIAL CARDS - TILT ON HOVER + STAR POP
         // =============================================
         document.querySelectorAll('[data-tilt-testimonial]').forEach(card => {
             card.addEventListener('mousemove', (e) => {
