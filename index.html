@@ -1627,47 +1627,55 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0e0e0e] py-8 sm:py-16 px-6 border-t border-white/10">
-        <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-6 sm:gap-10 max-w-7xl mx-auto">
-            <div class="flex flex-col items-center sm:items-start gap-3">
+    <footer class="bg-[#0e0e0e] border-t border-white/10">
+
+        <!-- Mobile Footer -->
+        <div class="sm:hidden px-6 py-8 flex flex-col items-center gap-5 text-center">
+            <div class="flex items-center gap-1">
+                <img src="logo.svg" alt="Tussle.ai" class="h-6" />
+                <span class="text-base font-bold text-orange font-headline tracking-tighter">Tussle.ai</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                <a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/40 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
+                <a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/40 hover:text-white transition-colors" href="#features">Features</a>
+                <a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
+                <a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/40 hover:text-white transition-colors" href="privacy.html">Privacy</a>
+                <a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/40 hover:text-white transition-colors" href="terms.html">Terms</a>
+                <a class="font-label uppercase tracking-[0.1em] text-[11px] text-white/40 hover:text-white transition-colors" href="mailto:hello@tussle.ai">Contact</a>
+            </div>
+            <p class="font-label uppercase tracking-[0.08em] text-[10px] text-white/25">&copy; <span id="year">2026</span> Tussle.AI · Built For Closers.</p>
+        </div>
+
+        <!-- Desktop Footer -->
+        <div class="hidden sm:flex justify-between items-start gap-10 max-w-7xl mx-auto px-6 py-16">
+            <div class="flex flex-col gap-3">
                 <div class="flex items-center gap-0.5">
                     <img src="logo.svg" alt="Tussle.ai" class="h-6" />
                     <span class="text-lg font-bold text-orange font-headline tracking-tighter">Tussle.ai</span>
                 </div>
-                <p class="font-label uppercase tracking-[0.1em] text-xs md:text-sm text-white/40">&copy; <span id="year">2026</span> Tussle.AI &nbsp;·&nbsp; <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a> &nbsp;·&nbsp; Built For Closers.</p>
-                <!-- Mobile-only quick links -->
-                <div class="flex gap-4 sm:hidden mt-2">
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#features">Features</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
-                </div>
-                <div class="flex gap-4 sm:hidden">
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="privacy.html">Privacy</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="terms.html">Terms</a>
-                    <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="mailto:hello@tussle.ai">Contact</a>
-                </div>
+                <p class="font-label uppercase tracking-[0.1em] text-xs text-white/40">&copy; <span>2026</span> Tussle.AI &nbsp;·&nbsp; <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a> &nbsp;·&nbsp; Built For Closers.</p>
             </div>
-
-            <div class="hidden sm:grid grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-6 text-center sm:text-left">
+            <div class="grid grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-6">
                 <div class="flex flex-col gap-3">
-                    <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Product</span>
+                    <span class="font-headline font-bold text-white uppercase text-xs tracking-wider">Product</span>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#how-it-works">How It Works</a>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#features">Features</a>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="#faq">FAQ</a>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Legal</span>
+                    <span class="font-headline font-bold text-white uppercase text-xs tracking-wider">Legal</span>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="privacy.html">Privacy Policy</a>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors" href="terms.html">Terms of Service</a>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <span class="font-headline font-bold text-white uppercase text-xs md:text-sm tracking-wider">Connect</span>
+                    <span class="font-headline font-bold text-white uppercase text-xs tracking-wider">Connect</span>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="#"><span class="material-symbols-outlined text-[16px]">link</span> LinkedIn</a>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="#"><span class="material-symbols-outlined text-[16px]">link</span> Twitter / X</a>
                     <a class="font-label uppercase tracking-[0.1em] text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1.5" href="mailto:hello@tussle.ai"><span class="material-symbols-outlined text-[16px]">mail</span> Contact</a>
                 </div>
             </div>
         </div>
+
     </footer>
 
     <!-- JavaScript -->
