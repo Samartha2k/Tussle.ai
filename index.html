@@ -677,10 +677,10 @@
             animation: cell-flash 0.6s ease-out forwards;
         }
 
-        /* Close rate count-up glow */
+        /* Close rate glow settle (no scale, no overflow) */
         @keyframes rate-pop {
-            0%   { transform: scale(1.2); color: #4ade80; text-shadow: 0 0 12px #4ade80; }
-            100% { transform: scale(1);   color: #4ade80; text-shadow: none; }
+            0%   { text-shadow: 0 0 12px #4ade80; }
+            100% { text-shadow: none; }
         }
         .rate-pop { animation: rate-pop 0.5s ease-out forwards; }
 
