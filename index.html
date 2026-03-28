@@ -102,6 +102,14 @@
 
     <!-- Custom Styles -->
     <style>
+        /* ===== CUSTOM EASING CURVES (Emil Kowalski philosophy) ===== */
+        :root {
+            --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+            --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
         img.twemoji {
             height: 1em;
             width: 1em;
@@ -190,13 +198,18 @@
             border: 1px solid rgba(255,255,255,0.06);
             border-top-color: rgba(255,59,0,0.1);
             border-radius: 8px;
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s var(--ease-out-strong);
         }
 
-        .glass-card:hover {
-            border-color: rgba(255,59,0,0.25);
-            box-shadow: 0 0 24px rgba(255,59,0,0.08);
-            transform: translateY(-4px);
+        @media (hover: hover) and (pointer: fine) {
+            .glass-card:hover {
+                border-color: rgba(255,59,0,0.25);
+                box-shadow: 0 0 24px rgba(255,59,0,0.08);
+                transform: translateY(-3px);
+            }
+        }
+        .glass-card:active {
+            transform: translateY(0) scale(0.99);
         }
 
         .glow-primary {
@@ -236,13 +249,15 @@
             background: #111111;
             border: 1px solid rgba(255, 59, 0, 0.12);
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s var(--ease-out-strong);
         }
 
-        .testimonial-card:hover {
-            border-color: rgba(255, 59, 0, 0.3);
-            box-shadow: 0 0 20px rgba(255, 59, 0, 0.1);
-            transform: translateY(-6px) scale(1.02);
+        @media (hover: hover) and (pointer: fine) {
+            .testimonial-card:hover {
+                border-color: rgba(255, 59, 0, 0.3);
+                box-shadow: 0 0 20px rgba(255, 59, 0, 0.1);
+                transform: translateY(-4px);
+            }
         }
 
         .cta-box {
@@ -307,8 +322,8 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease-out, transform 0.5s var(--ease-out-strong);
         }
 
         .reveal.visible {
@@ -316,9 +331,9 @@
             transform: translateY(0);
         }
 
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
 
         .ripple {
             position: relative;
@@ -353,16 +368,19 @@
             padding: 14px 32px;
             border-radius: 4px;
             box-shadow: 0 0 20px rgba(255,59,0,0.35);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.15s var(--ease-out-strong), box-shadow 0.15s ease-out;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 0 40px rgba(255,59,0,0.6);
+        @media (hover: hover) and (pointer: fine) {
+            .btn-primary:hover {
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 0 0 36px rgba(255,59,0,0.55);
+            }
         }
 
         .btn-primary:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
+            transition-duration: 0.08s;
         }
 
         .btn-ghost {
@@ -377,14 +395,20 @@
             text-transform: uppercase;
             padding: 14px 32px;
             border-radius: 4px;
-            transition: all 0.2s;
+            transition: border-color 0.15s ease-out, color 0.15s ease-out, box-shadow 0.15s ease-out, transform 0.15s var(--ease-out-strong);
         }
 
-        .btn-ghost:hover {
-            border-color: rgba(255,59,0,0.4);
-            color: #fff;
-            box-shadow: 0 0 20px rgba(255,59,0,0.15);
-            transform: translateY(-2px);
+        @media (hover: hover) and (pointer: fine) {
+            .btn-ghost:hover {
+                border-color: rgba(255,59,0,0.4);
+                color: #fff;
+                box-shadow: 0 0 20px rgba(255,59,0,0.15);
+                transform: translateY(-2px);
+            }
+        }
+        .btn-ghost:active {
+            transform: scale(0.97);
+            transition-duration: 0.08s;
         }
 
         .magnetic-wrap {
@@ -394,7 +418,7 @@
 
         .mobile-menu {
             transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.32s var(--ease-drawer);
         }
 
         .mobile-menu.open {
@@ -415,7 +439,7 @@
             color: #ffffff !important;
             padding: 14px 20px !important;
             border-radius: 6px !important;
-            transition: all 0.2s;
+            transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
         }
 
         input.form-input:focus {
@@ -461,7 +485,7 @@
         }
 
         .count-up {
-            transition: all 0.3s ease;
+            transition: color 0.2s ease-out, opacity 0.2s ease-out;
         }
 
         .persona-card {
@@ -472,8 +496,8 @@
         /* Slide from left */
         .reveal-left {
             opacity: 0;
-            transform: translateX(-60px) rotate(-2deg);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateX(-40px) rotate(-1deg);
+            transition: opacity 0.5s ease-out, transform 0.5s var(--ease-out-strong);
         }
         .reveal-left.visible {
             opacity: 1;
@@ -483,8 +507,8 @@
         /* Slide from right */
         .reveal-right {
             opacity: 0;
-            transform: translateX(60px) rotate(2deg);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateX(40px) rotate(1deg);
+            transition: opacity 0.5s ease-out, transform 0.5s var(--ease-out-strong);
         }
         .reveal-right.visible {
             opacity: 1;
@@ -494,8 +518,8 @@
         /* Scale pop */
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.7);
-            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: scale(0.88);
+            transition: opacity 0.45s ease-out, transform 0.45s var(--ease-spring);
         }
         .reveal-scale.visible {
             opacity: 1;
@@ -504,15 +528,15 @@
 
         /* Emoji bounce on reveal (for cash 💸) */
         @keyframes emoji-bounce {
-            0% { transform: scale(0) rotate(-20deg); }
-            50% { transform: scale(1.4) rotate(10deg); }
-            70% { transform: scale(0.85) rotate(-5deg); }
-            100% { transform: scale(1) rotate(0); }
+            0% { transform: scale(0.5) rotate(-15deg); opacity: 0.3; }
+            50% { transform: scale(1.25) rotate(8deg); opacity: 1; }
+            70% { transform: scale(0.9) rotate(-4deg); }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
         }
 
         /* Emoji tremble/freeze (for worried 😰) */
         @keyframes emoji-tremble {
-            0% { transform: scale(0); opacity: 0; }
+            0% { transform: scale(0.6); opacity: 0; }
             30% { transform: scale(1.1); opacity: 1; }
             35% { transform: scale(1.1) translateX(-2px); }
             40% { transform: scale(1.1) translateX(2px); }
@@ -609,8 +633,8 @@
             justify-content: center;
             box-shadow: 0 0 15px rgba(255,59,0,0.4);
             opacity: 0;
-            transform: scale(0);
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: scale(0.6);
+            transition: opacity 0.3s ease-out, transform 0.3s var(--ease-spring);
         }
 
         .step-number.pop {
@@ -692,8 +716,8 @@
 
         /* Star fill animation */
         @keyframes star-pop {
-            0% { transform: scale(0) rotate(-30deg); opacity: 0; }
-            60% { transform: scale(1.3) rotate(5deg); opacity: 1; }
+            0% { transform: scale(0.4) rotate(-20deg); opacity: 0; }
+            60% { transform: scale(1.2) rotate(4deg); opacity: 1; }
             100% { transform: scale(1) rotate(0); opacity: 1; }
         }
         .star-animate {
@@ -849,7 +873,7 @@
         /* Competitive angle toggle */
         .angle-option {
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: border-color 0.15s ease-out, background 0.15s ease-out, color 0.15s ease-out;
         }
         .angle-option:hover {
             border-color: rgba(255,59,0,0.4) !important;
@@ -865,7 +889,7 @@
 
         /* Sentiment badge transition */
         .sentiment-badge {
-            transition: all 0.4s ease;
+            transition: color 0.25s ease-out, opacity 0.25s ease-out;
         }
 
         /* Shield pulse */
@@ -895,38 +919,40 @@
 
         /* Hover animations inside Watch It Fight For You window */
         .panel-card {
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+            transition: border-color 0.18s ease-out, box-shadow 0.18s ease-out, transform 0.18s var(--ease-out-strong);
             cursor: default;
-        }
-        .panel-card:hover {
-            border-color: rgba(255,69,0,0.35) !important;
-            box-shadow: 0 0 18px rgba(255,69,0,0.12);
-            transform: translateY(-2px);
         }
         .detection-cell {
-            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+            transition: border-color 0.15s ease-out, background 0.15s ease-out, transform 0.15s var(--ease-out-strong);
             cursor: default;
-        }
-        .detection-cell:hover {
-            background: rgba(255,69,0,0.07) !important;
-            border-color: rgba(255,69,0,0.25) !important;
-            transform: scale(1.02);
         }
         .rebuttal-box {
-            transition: box-shadow 0.25s ease, background 0.25s ease;
+            transition: box-shadow 0.2s ease-out, background 0.2s ease-out;
             cursor: default;
-        }
-        .rebuttal-box:hover {
-            background: rgba(255,69,0,0.1) !important;
-            box-shadow: 0 0 24px rgba(255,69,0,0.18), inset 0 0 20px rgba(255,69,0,0.05);
         }
         .insight-panel {
-            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+            transition: box-shadow 0.2s ease-out, border-color 0.2s ease-out;
             cursor: default;
         }
-        .insight-panel:hover {
-            box-shadow: 0 0 35px rgba(255,69,0,0.25);
-            border-color: rgba(255,69,0,0.7) !important;
+        @media (hover: hover) and (pointer: fine) {
+            .panel-card:hover {
+                border-color: rgba(255,69,0,0.35) !important;
+                box-shadow: 0 0 18px rgba(255,69,0,0.12);
+                transform: translateY(-2px);
+            }
+            .detection-cell:hover {
+                background: rgba(255,69,0,0.07) !important;
+                border-color: rgba(255,69,0,0.25) !important;
+                transform: scale(1.02);
+            }
+            .rebuttal-box:hover {
+                background: rgba(255,69,0,0.1) !important;
+                box-shadow: 0 0 24px rgba(255,69,0,0.18), inset 0 0 20px rgba(255,69,0,0.05);
+            }
+            .insight-panel:hover {
+                box-shadow: 0 0 35px rgba(255,69,0,0.25);
+                border-color: rgba(255,69,0,0.7) !important;
+            }
         }
 
         /* Key phrase fade transition */
@@ -936,10 +962,9 @@
 
         /* ===== AVATAR STACK ANIMATIONS ===== */
         @keyframes avatar-pop-in {
-            0% { opacity: 0; transform: scale(0) translateX(-20px); }
-            60% { opacity: 1; transform: scale(1.15) translateX(0); }
-            80% { transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
+            0% { opacity: 0; transform: scale(0.6) translateX(-12px); }
+            60% { opacity: 1; transform: scale(1.08) translateX(0); }
+            100% { opacity: 1; transform: scale(1) translateX(0); }
         }
 
         .avatar-stack img,
@@ -984,15 +1009,22 @@
         }
 
         /* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+        /* Reduced motion: remove movement animations, keep opacity/color transitions */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 scroll-behavior: auto !important;
             }
-            /* Keep reveal transitions working — just make them instant */
+            /* Keep reveal transitions but remove the motion — just fade in */
             .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                transform: none !important;
+                transition-property: opacity !important;
                 transition-duration: 0.3s !important;
+            }
+            /* Remove decorative background animations */
+            body::after {
+                animation: none !important;
             }
         }
 
